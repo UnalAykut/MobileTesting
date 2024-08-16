@@ -1,18 +1,14 @@
 package testRunners;
 
-import io.appium.java_client.AppiumDriver;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import util.DriverFactory;
 
 @CucumberOptions(
         features = {"src/test/java/features"},
-        glue = {"stepDefinitions","util"},
+        glue = {"stepDefinitions", "util"},
         tags = "",
-        plugin = {"summary","pretty","html:Reports/CucumberReport/Reports.html"}
+        plugin = {"summary", "pretty", "html:Reports/CucumberReport/Reports.html"}
 )
-public class Runner extends AbstractTestNGCucumberTests
-{
-static AppiumDriver driver = DriverFactory.getDriver();
-
+public class Runner extends AbstractTestNGCucumberTests {
+    // Static driver initialization removed as it's handled in Hooks class
 }

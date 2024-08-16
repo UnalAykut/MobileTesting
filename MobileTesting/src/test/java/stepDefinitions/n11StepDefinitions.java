@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.annotations.Test;
 import pages.N11Pages;
 import util.DriverFactory;
 
@@ -14,7 +15,9 @@ public class n11StepDefinitions {
     }
 
     @And("Elektronik kategorisi seçilir")
-    public void elektronikKategorisiSeçilir() {
+    public void elektronikKategorisiSeçilir() throws InterruptedException {
+        n11Pages.clickOnCategory(N11Pages.Kategori.ELEKTRONIK);
+        Thread.sleep( 1000 );
     }
 
     @And("Telefon ve Aksesuarları kategorisi seçilir")

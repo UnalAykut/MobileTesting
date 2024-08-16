@@ -5,21 +5,25 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.testng.Reporter;
 
-
 import java.io.IOException;
 import java.util.Properties;
 
 public class Hooks {
-   private AppiumDriver driver;
-   private Properties properties;
+    private AppiumDriver driver;
+    private final Properties properties = ConfigReader.getProperties();
+
     @Before
     public void setUp() throws IOException {
-        String browser= Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter( "browser" );
-        properties=ConfigReader.initialize_Properties();
-        driver=DriverFactory.initialize_Driver( browser );
+        String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("platform");
+        String udid = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("udid");
+        String appPackage = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("appPackage");
+        String appActivity = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("appActivity");
+
+        driver = DriverFactory.initializeDriver(platform, udid, appPackage, appActivity);
     }
+
     @After
-    public void quitDriver(){
-        driver.quit();
+    public void quitDriver() {
+       // DriverFactory.quitDriver();
     }
 }
