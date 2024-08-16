@@ -4,11 +4,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.annotations.Test;
+import pages.KategorilerPage;
 import pages.N11Pages;
 import util.DriverFactory;
 
 public class n11StepDefinitions {
     N11Pages n11Pages = new N11Pages( DriverFactory.getDriver());
+    KategorilerPage kategorilerPage=new KategorilerPage( DriverFactory.getDriver() );
     @When("Kategoriler menüsüne tıklanır")
     public void kategorilerMenüsüneTıklanır() {
         n11Pages.clickKategoriler();
@@ -16,7 +18,7 @@ public class n11StepDefinitions {
 
     @And("Elektronik kategorisi seçilir")
     public void elektronikKategorisiSeçilir() throws InterruptedException {
-        n11Pages.clickOnCategory(N11Pages.Kategori.ELEKTRONIK);
+        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
         Thread.sleep( 1000 );
     }
 

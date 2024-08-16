@@ -22,8 +22,8 @@ public class ElementHelper {
         this.actions = new Actions(driver);
     }
 
-    public void clickElement(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+    public void clickElement(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
     public void sendKeys(By locator, String text) {
