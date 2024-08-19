@@ -23,11 +23,9 @@ public class KategorilerPageTest extends BaseTest{
     @Test(priority = 1)
     public void kategorilerValueTest(){
         n11Pages.clickKategoriler();
-        for (KategorilerPage.Kategori kategori : KategorilerPage.Kategori.values()) {
-            kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
-            elementHelper.clickBackButton(); // Kategoriler sayfasına dön
+        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
         }
     }
 
 
-}
+
