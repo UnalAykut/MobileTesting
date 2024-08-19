@@ -24,6 +24,6 @@ public class Hooks {
 
     @After
     public void quitDriver() {
-       // DriverFactory.quitDriver();
+        DriverFactory.quitDriver();
     }
 }

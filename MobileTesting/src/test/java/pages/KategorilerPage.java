@@ -9,10 +9,9 @@ import util.ElementHelper;
 import java.util.List;
 
 public class KategorilerPage extends BasePage {
-    private AppiumDriver driver;
 
     public KategorilerPage(AppiumDriver driver) {
-        super( );
+        super(driver);
 
     }
     @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
@@ -47,8 +46,10 @@ public class KategorilerPage extends BasePage {
                 element.click();
                 break;
             }
-
         }
-
     }
+    public List<WebElement> categoryList(){
+        return kategoriler;
+    }
+
 }
