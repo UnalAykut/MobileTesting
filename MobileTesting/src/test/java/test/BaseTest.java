@@ -1,10 +1,8 @@
 package test;
 
-import com.google.common.io.BaseEncoding;
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pages.BasePage;
 import pages.KategorilerPage;
 import pages.N11Pages;
 import util.DriverFactory;

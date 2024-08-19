@@ -1,12 +1,9 @@
 package test;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.KategorilerPage;
-import pages.N11Pages;
-import util.DriverFactory;
+
 
 public class KategorilerPageTest extends BaseTest{
 
