@@ -7,8 +7,8 @@ import pages.BasePage;
 
 import java.util.List;
 
-public class TelefonAksesuarlari extends BasePage {
-    public TelefonAksesuarlari(AppiumDriver driver) {
+public class TelefonAksesuarlariPage extends BasePage {
+    public TelefonAksesuarlariPage(AppiumDriver driver) {
         super( driver );
     }
     @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
@@ -36,7 +36,7 @@ public class TelefonAksesuarlari extends BasePage {
         return getCategoryElements(telefonAksesuarKategorileri);
     }
 
-    public void telefonAksesuarKategorileri(TelefonAksesuarlari.TelefonAksesuarKategori kategori){
+    public void telefonAksesuarKategorileri(TelefonAksesuarlariPage.TelefonAksesuarKategori kategori){
                 clickOnCategory( telefonAksesuarKategorileri,kategori.getDisplayName() );
             }
         }

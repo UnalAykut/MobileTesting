@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import pages.KategorilerElektronikPage;
 import pages.KategorilerPage;
 import pages.N11Pages;
+import pages.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
 import util.DriverFactory;
 import util.ElementHelper;
 import util.Hooks;
@@ -14,6 +15,7 @@ import java.net.MalformedURLException;
 
 public class BaseTest {
     protected AppiumDriver driver;
+    protected ElektrikliEvAletleriPage elektrikliEvAletleriPage;
     protected KategorilerPage kategorilerPage;
     protected N11Pages n11Pages;
     protected KategorilerElektronikPage kategorilerElektronikPage;
@@ -34,6 +36,7 @@ public class BaseTest {
         n11Pages = new N11Pages(driver);
         elementHelper= new ElementHelper(driver);
         kategorilerElektronikPage =new KategorilerElektronikPage( driver );
+        elektrikliEvAletleriPage=new ElektrikliEvAletleriPage( driver );
     }
     @AfterClass
     public void tearDown() {

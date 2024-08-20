@@ -7,12 +7,12 @@ import pages.BasePage;
 
 import java.util.List;
 
-public class ElektrikliEvAletleri extends BasePage {
-    public ElektrikliEvAletleri(AppiumDriver driver) {
+public class ElektrikliEvAletleriPage extends BasePage {
+    public ElektrikliEvAletleriPage(AppiumDriver driver) {
         super( driver );
     }
     @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
-    private List<WebElement> elektrikliEvAletleriKategoriler;
+    public List<WebElement> elektrikliEvAletleriKategoriler;
     public enum ElektrikliEvAletleriKategori {
         ELEKTRIKLI_MUTFAK_ALETLERI("Elektrikli Mutfak Aletleri"),
         UTU("Ütü"),
@@ -33,7 +33,7 @@ public class ElektrikliEvAletleri extends BasePage {
     public List<WebElement> categoryList(){
         return getCategoryElements(elektrikliEvAletleriKategoriler);
     }
-    public void bilgisayarKategorileri(ElektrikliEvAletleri.ElektrikliEvAletleriKategori kategori){
+    public void bilgisayarKategorileri(ElektrikliEvAletleriPage.ElektrikliEvAletleriKategori kategori){
         clickOnCategory( elektrikliEvAletleriKategoriler,kategori.getDisplayName() );
     }
 

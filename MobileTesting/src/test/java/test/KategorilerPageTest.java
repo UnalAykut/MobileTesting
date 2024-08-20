@@ -2,7 +2,9 @@ package test;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import pages.KategorilerElektronikPage;
 import pages.KategorilerPage;
+import pages.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
 
 
 public class KategorilerPageTest extends BaseTest{
@@ -21,9 +23,11 @@ public class KategorilerPageTest extends BaseTest{
         }
     }
     @Test(priority = 1)
-    public void kategorilerValueTest(){
+    public void kategorilerValueTest() throws InterruptedException {
         n11Pages.clickKategoriler();
         kategorilerPage.clickOnElektronikCategory( KategorilerPage.Kategori.ELEKTRONIK);
+        kategorilerElektronikPage.clickOnElektronikCategory( KategorilerElektronikPage.ElektrikKategori.ELEKRIKLI_EV_ALETLERI );
+        elektrikliEvAletleriPage.selectCategory( elektrikliEvAletleriPage.elektrikliEvAletleriKategoriler, ElektrikliEvAletleriPage.ElektrikliEvAletleriKategori.UTU );
         }
     }
 

@@ -7,8 +7,8 @@ import pages.BasePage;
 
 import java.util.List;
 
-public class TelevizyonSesSistemleri extends BasePage {
-    public TelevizyonSesSistemleri(AppiumDriver driver) {
+public class TelevizyonSesSistemleriPage extends BasePage {
+    public TelevizyonSesSistemleriPage(AppiumDriver driver) {
         super( driver );
     }
     @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
@@ -40,7 +40,7 @@ public class TelevizyonSesSistemleri extends BasePage {
     public List<WebElement> categoryList(){
         return getCategoryElements(televizyonSesSistemleriKategoriler);
     }
-    public void bilgisayarKategorileri(TelevizyonSesSistemleri.TelevizyonSesKategori kategori){
+    public void bilgisayarKategorileri(TelevizyonSesSistemleriPage.TelevizyonSesKategori kategori){
         clickOnCategory( televizyonSesSistemleriKategoriler,kategori.getDisplayName() );
     }
 

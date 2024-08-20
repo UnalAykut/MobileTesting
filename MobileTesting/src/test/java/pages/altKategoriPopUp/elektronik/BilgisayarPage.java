@@ -7,10 +7,10 @@ import pages.BasePage;
 
 import java.util.List;
 
-public class Bilgisayar extends BasePage {
+public class BilgisayarPage extends BasePage {
     @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
     private List<WebElement> bilgisayarKategorileri;
-    public Bilgisayar(AppiumDriver driver) {
+    public BilgisayarPage(AppiumDriver driver) {
         super( driver );
     }
     public enum BilgisayarKategori {
@@ -42,7 +42,7 @@ public class Bilgisayar extends BasePage {
     public List<WebElement> categoryList(){
         return getCategoryElements(bilgisayarKategorileri);
     }
-    public void bilgisayarKategorileri(Bilgisayar.BilgisayarKategori kategori){
+    public void bilgisayarKategorileri(BilgisayarPage.BilgisayarKategori kategori){
         clickOnCategory( bilgisayarKategorileri,kategori.getDisplayName() );
     }
 
