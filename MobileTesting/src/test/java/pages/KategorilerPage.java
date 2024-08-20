@@ -39,16 +39,13 @@ public class KategorilerPage extends BasePage {
         }
     }
 
-    public void clickOnCategory(KategorilerPage.Kategori kategori) {
-        for (WebElement element : kategoriler) {
-            if (element.getText().equalsIgnoreCase( kategori.getDisplayName() )) {
-                element.click();
-                break;
-            }
+    public void clickOnElektronikCategory(KategorilerPage.Kategori kategori) {
+       clickOnCategory( kategoriler, kategori.getDisplayName() );
         }
-    }
+
+
     public List<WebElement> categoryList(){
-        return kategoriler;
+        return getCategoryElements(kategoriler);
     }
 
 }

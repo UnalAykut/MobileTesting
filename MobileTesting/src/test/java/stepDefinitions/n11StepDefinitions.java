@@ -17,7 +17,7 @@ public class n11StepDefinitions {
 
     @And("Elektronik kategorisi seçilir")
     public void elektronikKategorisiSeçilir() throws InterruptedException {
-        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
+        kategorilerPage.clickOnElektronikCategory( KategorilerPage.Kategori.ELEKTRONIK);
         Thread.sleep( 1000 );
     }
 

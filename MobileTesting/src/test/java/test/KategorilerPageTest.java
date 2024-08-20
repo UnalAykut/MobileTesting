@@ -23,7 +23,7 @@ public class KategorilerPageTest extends BaseTest{
     @Test(priority = 1)
     public void kategorilerValueTest(){
         n11Pages.clickKategoriler();
-        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
+        kategorilerPage.clickOnElektronikCategory( KategorilerPage.Kategori.ELEKTRONIK);
         }
     }
 

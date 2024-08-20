@@ -11,8 +11,8 @@ public class KategorilerElektronikPageTest extends BaseTest{
     @Test
     public void elektronikKategorilerValueTest(){
         n11Pages.clickKategoriler();
-        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK );
-        kategorilerElektronikPage.clickOnElektronikCategory( KategorilerElektronikPage.ElektrikKategori.TELEFON_AKSESUARLARI );
+        kategorilerPage.clickOnElektronikCategory(KategorilerPage.Kategori.ELEKTRONIK );
+        kategorilerElektronikPage.clickOnElektronikCategory(KategorilerElektronikPage.ElektrikKategori.TELEFON_AKSESUARLARI );
     }
     @Test
     public void elektronikKategorilerTest(){

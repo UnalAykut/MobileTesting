@@ -22,24 +22,21 @@ public class KategorilerElektronikPage extends BasePage{
         BEYAZ_ESYA("Beyaz Esya"),
         FOTOGRAF_KAMERA("Fotoğraf & Kamera"),
         VİDEO_OYUN_KONSOL("Video Oyun & Konsol");
-    private String kategoriAdi;
+    private String displayName;
         ElektrikKategori(String displayName) {
-            this.kategoriAdi = displayName; // Parametre olarak verilen gösterim adı, ilgili enum değerine atanır.
+            this.displayName = displayName; // Parametre olarak verilen gösterim adı, ilgili enum değerine atanır.
         }
         public String getDisplayName() {
-            return kategoriAdi;
+            return displayName;
         }
+    }
+    public void clickOnElektronikCategory(KategorilerElektronikPage.ElektrikKategori kategori) {
+        clickOnCategory( elektornikKategorileri, kategori.getDisplayName() );
     }
 
-    public void clickOnElektronikCategory(KategorilerElektronikPage.ElektrikKategori kategori){
-        for (WebElement element:elektornikKategorileri){
-            if(element.getText().equalsIgnoreCase(kategori.getDisplayName())){
-                element.click();
-            }
-        }
-    }
+
     public List<WebElement> elektronikKategoriGez(){
-        return elektornikKategorileri;
+        return getCategoryElements(elektornikKategorileri);
     }
 
 
