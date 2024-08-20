@@ -11,7 +11,10 @@ public class KategorilerElektronikPageTest extends BaseTest{
     @Test
     public void elektronikKategorilerValueTest() throws InterruptedException {
         n11Pages.clickKategoriler();
-        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
+        Thread.sleep(2000);
+        kategorilerPage.loadCategories();
+        kategorilerPage.clickOnCategory(KategorilerPage.Kategori.ELEKTRONIK);
+        Thread.sleep(2000);
         kategorilerElektronikPage.clickOnElektronikCategory( KategorilerElektronikPage.ElektrikKategori.ELEKRIKLI_EV_ALETLERI );
         Thread.sleep( 3000 );
     }
