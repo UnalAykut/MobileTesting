@@ -43,7 +43,7 @@ public class BilgisayarPage extends BasePage {
         return getCategoryElements(bilgisayarKategorileri);
     }
     public void bilgisayarKategorileri(BilgisayarPage.BilgisayarKategori kategori){
-        clickOnCategory( bilgisayarKategorileri,kategori.getDisplayName() );
+        //clickOnCategory( bilgisayarKategorileri,kategori.getDisplayName() );
     }
 
 

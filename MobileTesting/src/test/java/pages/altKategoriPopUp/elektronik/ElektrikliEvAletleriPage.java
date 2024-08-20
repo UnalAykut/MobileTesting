@@ -34,7 +34,9 @@ public class ElektrikliEvAletleriPage extends BasePage {
         return getCategoryElements(elektrikliEvAletleriKategoriler);
     }
     public void bilgisayarKategorileri(ElektrikliEvAletleriPage.ElektrikliEvAletleriKategori kategori){
-        clickOnCategory( elektrikliEvAletleriKategoriler,kategori.getDisplayName() );
+        //clickOnCategory( elektrikliEvAletleriKategoriler,kategori.getDisplayName() );
     }
-
+    public void selectCategory(ElektrikliEvAletleriPage.ElektrikliEvAletleriKategori kategori) {
+        //clickOnCategory(elektrikliEvAletleriKategoriler, kategori.getDisplayName());
+    }
 }

@@ -41,7 +41,7 @@ public class TelevizyonSesSistemleriPage extends BasePage {
         return getCategoryElements(televizyonSesSistemleriKategoriler);
     }
     public void bilgisayarKategorileri(TelevizyonSesSistemleriPage.TelevizyonSesKategori kategori){
-        clickOnCategory( televizyonSesSistemleriKategoriler,kategori.getDisplayName() );
+        //clickOnCategory( televizyonSesSistemleriKategoriler,kategori.getDisplayName() );
     }
 
 

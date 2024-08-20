@@ -9,26 +9,27 @@ import java.util.List;
 
 public abstract class BasePage {
     protected AppiumDriver driver;
-    private ElementHelper elementHelper =new ElementHelper( driver );
+    protected ElementHelper elementHelper;
     public BasePage(AppiumDriver driver) {
         this.driver = driver;
+        elementHelper=new ElementHelper( driver );
         PageFactory.initElements( driver, this );
     }
-    public void selectCategory(List<WebElement> categoryList, Enum<?> kategoriEnum) {
-        String categoryName = kategoriEnum.toString().replace("_", " ");
-        clickOnCategory(categoryList, categoryName);
-    }
+
     public List<WebElement> getCategoryElements(List<WebElement> categoryList) {
         return categoryList;
     }
-    public void clickOnCategory(List<WebElement> categoryList, String categoryName) {
+    /*public void clickOnCategory(List<WebElement> categoryList, String categoryName) {
         for (WebElement element : categoryList) {
-            if (element.getText().equalsIgnoreCase( categoryName )) {
-                element.click();
+            elementHelper.waitForVisibility(element);
+            if (element.getText().equalsIgnoreCase(categoryName)){
+                elementHelper.clickElement(element);
                 break; // Kategori bulundu ve tıklandı, döngüden çık
-            }
+           }
         }
-    }
+        }
+*/
+
 }
 
 

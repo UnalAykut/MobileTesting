@@ -11,14 +11,15 @@ public class KategorilerElektronikPage extends BasePage{
     public KategorilerElektronikPage(AppiumDriver driver) {
         super( driver );
     }
-    @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
-    private List<WebElement> elektornikKategorileri;
+
+    @FindBy(xpath = "//*[contains(@resource-id,'com.dmall.mfandroid:id/ivCategoryItem')]/following-sibling::android.widget.TextView[contains(@resource-id,'com.dmall.mfandroid:id/tvCategoryItem')]\n")
+    private List<WebElement> elektronikKategorileri;
 
     public enum ElektrikKategori{
         TELEFON_AKSESUARLARI("Telefon & Aksesuarları"),
         BILGISAYAR("Bilgisayar"),
         TELEVİZYON_SES_SISTEMLERI("Televizyon & Ses Sistemleri"),
-        ELEKRIKLI_EV_ALETLERI("Elektirikli Ev Aletleri"),
+        ELEKRIKLI_EV_ALETLERI("Elektrikli Ev Aletleri"),
         BEYAZ_ESYA("Beyaz Esya"),
         FOTOGRAF_KAMERA("Fotoğraf & Kamera"),
         VİDEO_OYUN_KONSOL("Video Oyun & Konsol");
@@ -30,14 +31,19 @@ public class KategorilerElektronikPage extends BasePage{
             return displayName;
         }
     }
-    public void clickOnElektronikCategory(KategorilerElektronikPage.ElektrikKategori kategori) {
-        clickOnCategory( elektornikKategorileri, kategori.getDisplayName() );
+    public void clickOnElektronikCategory(KategorilerElektronikPage.ElektrikKategori kategori){
+        for (WebElement element:elektronikKategorileri){
+            elementHelper.waitForVisibility( element );
+            if(element.getText().equalsIgnoreCase(kategori.getDisplayName())){
+                elementHelper.clickElement(element);
+                break;
+            }
+        }
     }
 
 
     public List<WebElement> elektronikKategoriGez(){
-        return getCategoryElements(elektornikKategorileri);
+        return getCategoryElements(elektronikKategorileri);
     }
-
 
 }

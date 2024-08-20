@@ -1,6 +1,7 @@
 package test;
 
 import io.appium.java_client.AppiumDriver;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.KategorilerElektronikPage;
@@ -32,11 +33,11 @@ public class BaseTest {
     }
 
     private void intializePages(){
-        kategorilerPage = new KategorilerPage(driver);
-        n11Pages = new N11Pages(driver);
         elementHelper= new ElementHelper(driver);
-        kategorilerElektronikPage =new KategorilerElektronikPage( driver );
-        elektrikliEvAletleriPage=new ElektrikliEvAletleriPage( driver );
+        n11Pages = new N11Pages(driver);
+        kategorilerPage = new KategorilerPage(driver);
+            kategorilerElektronikPage =new KategorilerElektronikPage( driver );
+                elektrikliEvAletleriPage=new ElektrikliEvAletleriPage( driver );
     }
     @AfterClass
     public void tearDown() {

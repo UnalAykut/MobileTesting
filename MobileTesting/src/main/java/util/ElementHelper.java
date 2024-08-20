@@ -21,6 +21,7 @@ public class ElementHelper {
     @FindBy(id="com.dmall.mfandroid:id/ivBackToolbar")
     private WebElement pressBack;
     public void clickBackButton() {
+        waitForVisibility(pressBack);
         pressBack.click();
     }
     public ElementHelper(AppiumDriver driver) {
@@ -32,6 +33,7 @@ public class ElementHelper {
     }
 
     public void clickElement(WebElement element) {
+        waitForVisibility(element);
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
@@ -48,13 +50,12 @@ public class ElementHelper {
     public boolean isElementVisible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
     }
-    public WebElement waitForVisibility(WebElement element, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+    public WebElement waitForVisibility(WebElement element) {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public WebElement waitForClickability(WebElement element, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+    public WebElement waitForClickability(WebElement element) {
+
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 

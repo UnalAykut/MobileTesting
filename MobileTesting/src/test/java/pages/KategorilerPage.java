@@ -13,11 +13,11 @@ public class KategorilerPage extends BasePage {
         super(driver);
 
     }
-    @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
+    @FindBy(xpath = "//*[contains(@resource-id,'com.dmall.mfandroid:id/ivCategoryItem')]/following-sibling::android.widget.TextView[contains(@resource-id,'com.dmall.mfandroid:id/tvCategoryItem')]\n")
     private List<WebElement> kategoriler;
     public enum Kategori {
         MODA( "Moda" ),
-        ELEKTRONIK( "Elektronik" ),
+        ELEKTRONIK( "Elektronik"),
         EV_YASAM( "Ev & Yaşam" ),
         ANNE_BEBEK( "Anne & Bebek" ),
         KOZMETIK( "Kozmetik & Kişisel Bakım" ),
@@ -39,10 +39,19 @@ public class KategorilerPage extends BasePage {
         }
     }
 
-    public void clickOnElektronikCategory(KategorilerPage.Kategori kategori) {
-       clickOnCategory( kategoriler, kategori.getDisplayName() );
-        }
+    public void clickOnCategory(KategorilerPage.Kategori kategori) {
 
+        for (WebElement element: kategoriler){
+            elementHelper.waitForVisibility( element );
+            if (element.getText().equalsIgnoreCase(kategori.getDisplayName())) {
+                elementHelper.clickElement(element);
+                break;
+            }
+        }
+    }
+   /* public void selectCategory(KategorilerPage.Kategori kategori) {
+        clickOnCategory(kategoriler, kategori.getDisplayName());
+    }*/
 
     public List<WebElement> categoryList(){
         return getCategoryElements(kategoriler);

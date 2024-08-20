@@ -14,7 +14,7 @@ public class N11Pages extends BasePage{
     }
 
     public void clickKategoriler() {
-        kategoriButton.click();
+        elementHelper.clickElement( kategoriButton );
     }
 
 

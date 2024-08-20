@@ -37,7 +37,7 @@ public class TelefonAksesuarlariPage extends BasePage {
     }
 
     public void telefonAksesuarKategorileri(TelefonAksesuarlariPage.TelefonAksesuarKategori kategori){
-                clickOnCategory( telefonAksesuarKategorileri,kategori.getDisplayName() );
+                //clickOnCategory( telefonAksesuarKategorileri,kategori.getDisplayName() );
             }
         }
 
