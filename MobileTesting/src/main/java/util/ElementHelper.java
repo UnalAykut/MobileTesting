@@ -17,7 +17,12 @@ public class ElementHelper {
     private final AppiumDriver driver;
     private final WebDriverWait wait;
     private final Actions actions;
-
+    @FindBy(id = "com.dmall.mfandroid:id/ivSearchBarBack")
+    private WebElement searchPressBack;
+    public void searchBackButton() {
+        waitForVisibility(searchPressBack);
+        searchPressBack.click();
+    }
     @FindBy(id="com.dmall.mfandroid:id/ivBackToolbar")
     private WebElement pressBack;
     public void clickBackButton() {

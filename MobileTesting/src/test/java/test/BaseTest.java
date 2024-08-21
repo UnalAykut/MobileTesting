@@ -34,7 +34,7 @@ public class BaseTest {
         intializePages();
     }
 
-    private void intializePages(){
+    public void intializePages(){
         elementHelper= new ElementHelper(driver);
         n11Pages = new N11Pages(driver);
         kategorilerPage = new KategorilerPage(driver);

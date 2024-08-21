@@ -23,7 +23,7 @@ public class KategorilerElektronikPage extends BasePage {
         BILGISAYAR("Bilgisayar"),
         TELEVİZYON_SES_SISTEMLERI("Televizyon & Ses Sistemleri"),
         ELEKRIKLI_EV_ALETLERI("Elektrikli Ev Aletleri"),
-        BEYAZ_ESYA("Beyaz Esya"),
+        BEYAZ_ESYA("Beyaz Eşya"),
         FOTOGRAF_KAMERA("Fotoğraf & Kamera"),
         VİDEO_OYUN_KONSOL("Video Oyun & Konsol");
     private String displayName;
