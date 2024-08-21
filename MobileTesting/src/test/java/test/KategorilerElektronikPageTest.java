@@ -17,10 +17,10 @@ public class KategorilerElektronikPageTest extends BaseTest{
         kategorilerPage.clickOnCategory(KategorilerPage.Kategori.ELEKTRONIK);
         Thread.sleep(2000);
         kategorilerElektronikPage.loadCategories();
-        kategorilerElektronikPage.clickOnCategory( KategorilerElektronikPage.ElektrikKategori.BILGISAYAR );
+        kategorilerElektronikPage.clickOnCategory( KategorilerElektronikPage.Kategori.BILGISAYAR );
         Thread.sleep( 2000 );
         bilgisayarPage.loadCategories();
-        bilgisayarPage.clickOnCategory( BilgisayarPage.BilgisayarKategori.DIZUSTU_BILGISAYAR );
+        bilgisayarPage.clickOnCategory( BilgisayarPage.Kategori.DIZUSTU_BILGISAYAR );
 
     }
     @Test

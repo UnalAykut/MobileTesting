@@ -4,18 +4,21 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import pages.DisplayNameEnum;
+import pages.kategoriler.KategorilerElektronikPage;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FotografKameraPage extends BasePage {
     public FotografKameraPage(AppiumDriver driver) {
         super( driver );
-
     }
-    @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
-    private List<WebElement> fotografKameraKategorileri;
+    @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
+    private List<WebElement> kategoriElements;
 
-    public enum FotografKameraKategori {
+    public enum Kategori implements DisplayNameEnum {
         CANTA_KILIF("Çanta & Kılıf"),
         FOTOGRAF_MAKINESI("Fotoğraf Makinesi"),
         FOTOGRAF_MAKINESI_AKSESUARLARI("Fotoğraf Makinesi Aksesuarları"),
@@ -27,12 +30,21 @@ public class FotografKameraPage extends BasePage {
 
         private final String displayName;
 
-        FotografKameraKategori(String displayName) {
+        Kategori(String displayName) {
             this.displayName = displayName;
         }
 
         public String getDisplayName() {
             return displayName;
         }
+    }
+    public void loadCategories() {
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+    }
+    public void clickOnCategory(FotografKameraPage.Kategori kategori) {
+        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
+    }
+    public List<WebElement> categoryList(){
+        return getCategoryElements(kategoriElements);
     }
 }

@@ -11,15 +11,14 @@ import java.util.List;
 import java.util.Map;
 
 public class KategorilerElektronikPage extends BasePage {
-    private String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
     public KategorilerElektronikPage(AppiumDriver driver) {
         super( driver );
     }
 
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;
-    private Map<String, WebElement> kategoriMap = new HashMap<>();
-    public enum ElektrikKategori implements DisplayNameEnum {
+
+    public enum Kategori implements DisplayNameEnum {
         TELEFON_AKSESUARLARI("Telefon & Aksesuarları"),
         BILGISAYAR("Bilgisayar"),
         TELEVİZYON_SES_SISTEMLERI("Televizyon & Ses Sistemleri"),
@@ -28,7 +27,7 @@ public class KategorilerElektronikPage extends BasePage {
         FOTOGRAF_KAMERA("Fotoğraf & Kamera"),
         VİDEO_OYUN_KONSOL("Video Oyun & Konsol");
     private String displayName;
-        ElektrikKategori(String displayName) {
+        Kategori(String displayName) {
             this.displayName = displayName; // Parametre olarak verilen gösterim adı, ilgili enum değerine atanır.
         }
 
@@ -40,8 +39,8 @@ public class KategorilerElektronikPage extends BasePage {
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void clickOnCategory(KategorilerElektronikPage.ElektrikKategori elektrikKategori) {
-        BasePage.clickOnCategory(kategoriMap, elektrikKategori, categoryTextXPath);
+    public void clickOnCategory(KategorilerElektronikPage.Kategori kategori) {
+        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
     public List<WebElement> categoryList(){
         return getCategoryElements(kategoriElements);

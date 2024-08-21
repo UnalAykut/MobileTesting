@@ -4,6 +4,8 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import pages.DisplayNameEnum;
+import pages.kategoriler.KategorilerElektronikPage;
 
 import java.util.List;
 
@@ -11,10 +13,10 @@ public class VideoOyunKonsolPage extends BasePage {
     public VideoOyunKonsolPage(AppiumDriver driver) {
         super( driver );
     }
-    @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
-    private List<WebElement> videoOyunKonsolKategorileri;
+    @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
+    private List<WebElement> kategoriElements;
 
-    public enum VideoOyunKonsolKategori {
+    public enum Kategori implements DisplayNameEnum {
         PLAYSTATION_5("PlayStation 5"),
         XBOX_SERIES_X_SERIES_S("Xbox Series X & Series S"),
         PLAYSTATION_4("PlayStation 4"),
@@ -28,13 +30,22 @@ public class VideoOyunKonsolPage extends BasePage {
 
         private final String displayName;
 
-        VideoOyunKonsolKategori(String displayName) {
+        Kategori(String displayName) {
             this.displayName = displayName;
         }
 
         public String getDisplayName() {
             return displayName;
         }
+    }
+    public void loadCategories() {
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+    }
+    public void clickOnCategory(KategorilerElektronikPage.Kategori kategori) {
+        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
+    }
+    public List<WebElement> categoryList(){
+        return getCategoryElements(kategoriElements);
     }
 
 }

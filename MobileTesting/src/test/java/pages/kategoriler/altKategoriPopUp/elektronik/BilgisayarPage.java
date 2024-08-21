@@ -12,15 +12,14 @@ import java.util.List;
 import java.util.Map;
 
 public class BilgisayarPage extends BasePage {
-    private String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
-    private Map<String, WebElement> kategoriMap = new HashMap<>();
+
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;
 
     public BilgisayarPage(AppiumDriver driver) {
         super( driver );
     }
-    public enum BilgisayarKategori implements DisplayNameEnum {
+    public enum Kategori implements DisplayNameEnum {
         TABLET("Tablet"),
         DIZUSTU_BILGISAYAR("Dizüstü Bilgisayar"),
         MASAUSTU_BILGISAYAR("Masaüstü Bilgisayar"),
@@ -38,7 +37,7 @@ public class BilgisayarPage extends BasePage {
 
         private final String displayName;
 
-        BilgisayarKategori(String displayName) {
+        Kategori(String displayName) {
             this.displayName = displayName;
         }
 
@@ -51,7 +50,7 @@ public class BilgisayarPage extends BasePage {
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void clickOnCategory(BilgisayarPage.BilgisayarKategori kategori) {
+    public void clickOnCategory(BilgisayarPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
     public List<WebElement> categoryList(){

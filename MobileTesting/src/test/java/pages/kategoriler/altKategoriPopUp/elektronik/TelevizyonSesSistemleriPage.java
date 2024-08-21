@@ -4,17 +4,22 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import pages.DisplayNameEnum;
+import pages.kategoriler.KategorilerElektronikPage;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TelevizyonSesSistemleriPage extends BasePage {
+
     public TelevizyonSesSistemleriPage(AppiumDriver driver) {
         super( driver );
     }
-    @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
-    private List<WebElement> televizyonSesSistemleriKategoriler;
+    @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
+    private List<WebElement> kategoriElements;
 
-    public enum TelevizyonSesKategori {
+    public enum Kategori implements DisplayNameEnum {
         DVD_BLU_RAY_MEDYA_OYNATICI("DVD, Blu-Ray, Medya Oynatıcılar"),
         MP3_MP4_CALAR_AKSESUARLARI("MP3, MP4 Çalar & Aksesuarları"),
         MUZIK_SISTEMLERI("Müzik Sistemleri"),
@@ -29,7 +34,7 @@ public class TelevizyonSesSistemleriPage extends BasePage {
 
         private final String displayName;
 
-        TelevizyonSesKategori(String displayName) {
+        Kategori(String displayName) {
             this.displayName = displayName;
         }
 
@@ -37,11 +42,14 @@ public class TelevizyonSesSistemleriPage extends BasePage {
             return displayName;
         }
     }
-    public List<WebElement> categoryList(){
-        return getCategoryElements(televizyonSesSistemleriKategoriler);
+    public void loadCategories() {
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void bilgisayarKategorileri(TelevizyonSesSistemleriPage.TelevizyonSesKategori kategori){
-        //clickOnCategory( televizyonSesSistemleriKategoriler,kategori.getDisplayName() );
+    public void clickOnCategory(TelevizyonSesSistemleriPage.Kategori kategori) {
+        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
+    }
+    public List<WebElement> categoryList(){
+        return getCategoryElements(kategoriElements);
     }
 
 

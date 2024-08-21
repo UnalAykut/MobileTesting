@@ -14,6 +14,8 @@ import java.util.Map;
 public abstract class BasePage {
     protected static AppiumDriver driver;
     protected static ElementHelper elementHelper;
+    protected String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
+    protected Map<String, WebElement> kategoriMap = new HashMap<>();
     public BasePage(AppiumDriver driver) {
         this.driver = driver;
         elementHelper=new ElementHelper( driver );

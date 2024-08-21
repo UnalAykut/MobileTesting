@@ -14,16 +14,11 @@ import java.util.List;
 import java.util.Map;
 
 public class KategorilerPage extends BasePage {
-    private String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
     public KategorilerPage(AppiumDriver driver) {
         super(driver);
     }
-
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;
-
-    private Map<String, WebElement> kategoriMap = new HashMap<>();
-
     public enum Kategori implements DisplayNameEnum {
         MODA("Moda"),
         ELEKTRONIK("Elektronik"),

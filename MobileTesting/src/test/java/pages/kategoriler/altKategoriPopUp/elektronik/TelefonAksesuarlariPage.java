@@ -4,16 +4,20 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import pages.DisplayNameEnum;
+import pages.kategoriler.KategorilerElektronikPage;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TelefonAksesuarlariPage extends BasePage {
     public TelefonAksesuarlariPage(AppiumDriver driver) {
         super( driver );
     }
-    @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
-    private List<WebElement> telefonAksesuarKategorileri;
-    public enum TelefonAksesuarKategori{
+    @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
+    private List<WebElement> kategoriElements;
+    public enum Kategori implements DisplayNameEnum {
         CEP_TELEFONU ("Cep Telefonu"),
         CEP_TELEFONU_AKSESUARLARI ("Cep Telefonu Aksesuarları"),
         CEP_TELEFONU_YEDEK_PARCA("Cep Telefonu Yedek Parca"),
@@ -24,7 +28,7 @@ public class TelefonAksesuarlariPage extends BasePage {
         TUSLU_TELEFON("Tuşlu Telefonu"),
         YENİLENMİS_TELEFON_AKSESUAR("Yenilenmiş Telefon & Aksesuarları");
         private  String displayName;
-        TelefonAksesuarKategori(String displayName) {
+        Kategori(String displayName) {
             this.displayName = displayName;
         }
         public String getDisplayName() {
@@ -32,13 +36,15 @@ public class TelefonAksesuarlariPage extends BasePage {
         }
     }
 
-    public List<WebElement> categoryList(){
-        return getCategoryElements(telefonAksesuarKategorileri);
+    public void loadCategories() {
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-
-    public void telefonAksesuarKategorileri(TelefonAksesuarlariPage.TelefonAksesuarKategori kategori){
-                //clickOnCategory( telefonAksesuarKategorileri,kategori.getDisplayName() );
-            }
+    public void clickOnCategory(TelefonAksesuarlariPage.Kategori kategori) {
+        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
+    }
+    public List<WebElement> categoryList(){
+        return getCategoryElements(kategoriElements);
+    }
         }
 
 
