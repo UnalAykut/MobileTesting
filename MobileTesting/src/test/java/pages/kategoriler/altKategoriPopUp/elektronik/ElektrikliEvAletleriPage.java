@@ -20,7 +20,7 @@ public class ElektrikliEvAletleriPage extends BasePage {
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;
 
-    public enum ElektrikliEvAletleriKategori implements DisplayNameEnum {
+    public enum Kategori implements DisplayNameEnum {
         ELEKTRIKLI_MUTFAK_ALETLERI("Elektrikli Mutfak Aletleri"),
         UTU("Ütü"),
         DIKIS_MAKINESI_VE_AKSESUARLARI("Dikiş Makinesi ve Aksesuarları"),
@@ -29,7 +29,7 @@ public class ElektrikliEvAletleriPage extends BasePage {
 
         private final String displayName;
 
-        ElektrikliEvAletleriKategori(String displayName) {
+        Kategori(String displayName) {
             this.displayName = displayName;
         }
 
@@ -40,7 +40,7 @@ public class ElektrikliEvAletleriPage extends BasePage {
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void clickOnCategory(ElektrikliEvAletleriPage.ElektrikliEvAletleriKategori kategori) {
+    public void clickOnCategory(ElektrikliEvAletleriPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
     public List<WebElement> categoryList(){

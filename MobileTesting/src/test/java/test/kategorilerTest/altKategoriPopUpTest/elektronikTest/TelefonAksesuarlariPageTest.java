@@ -4,27 +4,28 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.kategoriler.KategorilerElektronikPage;
 import pages.kategoriler.KategorilerPage;
-import pages.kategoriler.altKategoriPopUp.elektronik.BeyazEsyaPage;
+import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
+import pages.kategoriler.altKategoriPopUp.elektronik.TelefonAksesuarlariPage;
 import test.BaseTest;
 
 import java.util.List;
 
-public class BeyazEsyaPageTest extends BaseTest {
-    private BeyazEsyaPage beyazEsyaPage;
+public class TelefonAksesuarlariPageTest extends BaseTest {
+    private TelefonAksesuarlariPage telefonAksesuarlariPage;
     @Override
     public void intializePages() {
         super.intializePages();
-        beyazEsyaPage=new BeyazEsyaPage( driver );
+        telefonAksesuarlariPage=new TelefonAksesuarlariPage( driver );
     }
     @Test
-    public void beyazEsyaKategorilerTest() throws InterruptedException {
+    public void telefonAksesuarlariKategorilerTest() throws InterruptedException {
         n11Pages.clickKategoriler();
         kategorilerPage.loadCategories();
-        kategorilerPage.clickOnCategory(KategorilerPage.Kategori.ELEKTRONIK);
+        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
         kategorilerElektronikPage.loadCategories();
-        kategorilerElektronikPage.clickOnCategory(KategorilerElektronikPage.Kategori.BEYAZ_ESYA);
-        for (int i = 0; i < beyazEsyaPage.categoryList().size(); i++) {
-            List<WebElement> kategoriler = beyazEsyaPage.categoryList(); // Her seferinde elementleri yeniden al
+        kategorilerElektronikPage.clickOnCategory( KategorilerElektronikPage.Kategori.TELEFON_AKSESUARLARI);
+        for (int i = 0; i < telefonAksesuarlariPage.categoryList().size(); i++) {
+            List<WebElement> kategoriler = telefonAksesuarlariPage.categoryList(); // Her seferinde elementleri yeniden al
             WebElement kategoriGez = kategoriler.get(i);
             elementHelper.waitForVisibility(kategoriGez);
             elementHelper.clickElement(kategoriGez);
@@ -32,9 +33,7 @@ public class BeyazEsyaPageTest extends BaseTest {
             elementHelper.searchBackButton();
             elementHelper.waitForVisibility(kategorilerElektronikPage.categoryList().get(0));
             kategorilerElektronikPage.loadCategories();
-            kategorilerElektronikPage.clickOnCategory(KategorilerElektronikPage.Kategori.BEYAZ_ESYA);
+            kategorilerElektronikPage.clickOnCategory(KategorilerElektronikPage.Kategori.TELEFON_AKSESUARLARI);
         }
     }
-
-
 }

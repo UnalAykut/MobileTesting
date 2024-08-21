@@ -28,7 +28,7 @@ public class KategorilerPageTest extends BaseTest{
        //kategorilerPage.selectCategory(KategorilerPage.Kategori.ELEKTRONIK);
         //kategorilerElektronikPage.selectCategory(KategorilerElektronikPage.ElektrikKategori.ELEKRIKLI_EV_ALETLERI);
         elektrikliEvAletleriPage.loadCategories();
-        elektrikliEvAletleriPage.clickOnCategory(ElektrikliEvAletleriPage.ElektrikliEvAletleriKategori.UTU );
+        elektrikliEvAletleriPage.clickOnCategory(ElektrikliEvAletleriPage.Kategori.UTU );
         }
     }
 

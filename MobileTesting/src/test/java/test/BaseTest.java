@@ -9,6 +9,8 @@ import pages.kategoriler.KategorilerPage;
 import pages.N11Pages;
 import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
+import pages.kategoriler.altKategoriPopUp.elektronik.FotografKameraPage;
+import test.kategorilerTest.altKategoriPopUpTest.elektronikTest.FotografKameraPageTest;
 import util.DriverFactory;
 import util.ElementHelper;
 import util.Hooks;
@@ -22,6 +24,7 @@ public class BaseTest {
     protected N11Pages n11Pages;
     protected KategorilerElektronikPage kategorilerElektronikPage;
     protected BilgisayarPage bilgisayarPage;
+    protected FotografKameraPage fotografKameraPage;
     protected ElementHelper elementHelper;
     private Hooks hooks;
     @BeforeClass
@@ -39,8 +42,7 @@ public class BaseTest {
         n11Pages = new N11Pages(driver);
         kategorilerPage = new KategorilerPage(driver);
             kategorilerElektronikPage =new KategorilerElektronikPage( driver );
-                elektrikliEvAletleriPage=new ElektrikliEvAletleriPage( driver );
-                bilgisayarPage=new BilgisayarPage( driver );
+
     }
     @AfterClass
     public void tearDown() {
