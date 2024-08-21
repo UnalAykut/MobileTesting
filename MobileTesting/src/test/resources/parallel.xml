@@ -7,7 +7,7 @@
     <test name="AppiumProject">
         <classes>
             <class name="testRunners.Runner"/>
-            <class name="test.KategorilerPageTest"></class>
+            <class name="test.kategorilerTest.KategorilerPageTest"></class>
         </classes>
     </test>
 </suite>

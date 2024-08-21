@@ -1,29 +1,26 @@
-package pages.kategoriler.altKategoriPopUp.elektronik;
+package pages.kategoriler.altKategoriPopUp.anneBebek;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
-
 import java.util.List;
 
-public class FotografKameraPage extends BasePage {
-    public FotografKameraPage(AppiumDriver driver) {
-        super( driver );
+public class BebekOyuncaklariPage extends BasePage {
+    public BebekOyuncaklariPage(AppiumDriver driver) {
+        super(driver);
     }
+
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;
 
     public enum Kategori implements DisplayNameEnum {
-        CANTA_KILIF("Çanta & Kılıf"),
-        FOTOGRAF_MAKINESI("Fotoğraf Makinesi"),
-        FOTOGRAF_MAKINESI_AKSESUARLARI("Fotoğraf Makinesi Aksesuarları"),
-        LENS_OBJEKTIF_FILTRE("Lens, Objektif, Filtre"),
-        TRIPOD_MONOPOD("Tripod & Monopod"),
-        VIDEO_KAMERA("Video Kamera"),
-        VIDEO_KAMERA_AKSESUARLARI("Video Kamera Aksesuarları"),
-        FOTOGRAF_YAZICILAR("Fotoğraf Yazıcılar");
+        O_6_AY_OYUNCAK("0-6 Ay Oyuncak"),
+        BIR_UC_YAS_OYUNCAK("1-3 Yaş Oyuncak"),
+        ALTI_ON_IKI_AY_OYUNCAK("6-12 Ay Oyuncak"),
+        CINGIRAK("Cıngırak"),
+        BANYO_OYUNCAKLARI("Banyo Oyuncakları");
 
         private final String displayName;
 
@@ -31,16 +28,20 @@ public class FotografKameraPage extends BasePage {
             this.displayName = displayName;
         }
 
+        @Override
         public String getDisplayName() {
             return displayName;
         }
     }
+
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void clickOnCategory(FotografKameraPage.Kategori kategori) {
+
+    public void clickOnCategory(BebekOyuncaklariPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
+
     public List<WebElement> categoryList(){
         return getCategoryElements(kategoriElements);
     }

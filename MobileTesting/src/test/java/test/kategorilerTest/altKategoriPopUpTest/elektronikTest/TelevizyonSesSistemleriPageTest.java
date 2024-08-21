@@ -2,11 +2,10 @@ package test.kategorilerTest.altKategoriPopUpTest.elektronikTest;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.kategoriler.KategorilerElektronikPage;
+import pages.kategoriler.ElektronikKategorilerPage;
 import pages.kategoriler.KategorilerPage;
-import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.TelevizyonSesSistemleriPage;
-import test.BaseTest;
+import test.kategorilerTest.BaseTest;
 
 import java.util.List;
 
@@ -22,8 +21,8 @@ public class TelevizyonSesSistemleriPageTest extends BaseTest {
         n11Pages.clickKategoriler();
         kategorilerPage.loadCategories();
         kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
-        kategorilerElektronikPage.loadCategories();
-        kategorilerElektronikPage.clickOnCategory( KategorilerElektronikPage.Kategori.TELEVİZYON_SES_SISTEMLERI);
+        elektronikKategorilerPage.loadCategories();
+        elektronikKategorilerPage.clickOnCategory( ElektronikKategorilerPage.Kategori.TELEVİZYON_SES_SISTEMLERI);
         for (int i = 0; i < televizyonSesSistemleriPage.categoryList().size(); i++) {
             List<WebElement> kategoriler = televizyonSesSistemleriPage.categoryList(); // Her seferinde elementleri yeniden al
             WebElement kategoriGez = kategoriler.get(i);
@@ -31,9 +30,9 @@ public class TelevizyonSesSistemleriPageTest extends BaseTest {
             elementHelper.clickElement(kategoriGez);
             Thread.sleep( 2000 );
             elementHelper.searchBackButton();
-            elementHelper.waitForVisibility(kategorilerElektronikPage.categoryList().get(0));
-            kategorilerElektronikPage.loadCategories();
-            kategorilerElektronikPage.clickOnCategory(KategorilerElektronikPage.Kategori.TELEVİZYON_SES_SISTEMLERI);
+            elementHelper.waitForVisibility( elektronikKategorilerPage.categoryList().get(0));
+            elektronikKategorilerPage.loadCategories();
+            elektronikKategorilerPage.clickOnCategory( ElektronikKategorilerPage.Kategori.TELEVİZYON_SES_SISTEMLERI);
         }
     }
 }

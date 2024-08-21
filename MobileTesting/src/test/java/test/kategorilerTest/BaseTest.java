@@ -1,16 +1,16 @@
-package test;
+package test.kategorilerTest;
 
 import io.appium.java_client.AppiumDriver;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pages.kategoriler.KategorilerElektronikPage;
+import pages.kategoriler.AnneBebekKategorilerPage;
+import pages.kategoriler.ElektronikKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.N11Pages;
 import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.FotografKameraPage;
-import test.kategorilerTest.altKategoriPopUpTest.elektronikTest.FotografKameraPageTest;
 import util.DriverFactory;
 import util.ElementHelper;
 import util.Hooks;
@@ -22,7 +22,8 @@ public class BaseTest {
     protected ElektrikliEvAletleriPage elektrikliEvAletleriPage;
     protected KategorilerPage kategorilerPage;
     protected N11Pages n11Pages;
-    protected KategorilerElektronikPage kategorilerElektronikPage;
+    protected ElektronikKategorilerPage elektronikKategorilerPage;
+    protected AnneBebekKategorilerPage anneBebekKategorilerPage;
     protected BilgisayarPage bilgisayarPage;
     protected FotografKameraPage fotografKameraPage;
     protected ElementHelper elementHelper;
@@ -41,8 +42,8 @@ public class BaseTest {
         elementHelper= new ElementHelper(driver);
         n11Pages = new N11Pages(driver);
         kategorilerPage = new KategorilerPage(driver);
-            kategorilerElektronikPage =new KategorilerElektronikPage( driver );
-
+            elektronikKategorilerPage =new ElektronikKategorilerPage( driver );
+            anneBebekKategorilerPage=new AnneBebekKategorilerPage( driver );
     }
     @AfterClass
     public void tearDown() {

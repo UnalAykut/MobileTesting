@@ -5,11 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
-import pages.kategoriler.KategorilerElektronikPage;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TelevizyonSesSistemleriPage extends BasePage {
 

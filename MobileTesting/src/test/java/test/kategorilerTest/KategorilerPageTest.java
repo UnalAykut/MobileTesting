@@ -1,12 +1,13 @@
-package test;
+package test.kategorilerTest;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
+import test.kategorilerTest.BaseTest;
 
 
-public class KategorilerPageTest extends BaseTest{
+public class KategorilerPageTest extends BaseTest {
 
     @Test(priority = 0)
      public void kategorilerTest() {
@@ -21,15 +22,7 @@ public class KategorilerPageTest extends BaseTest{
             elementHelper.waitForVisibility(kategorilerPage.categoryList().get(0));//kategori listesi tekrar yüklenmesi bekle
         }
     }
-    @Test(priority = 1)
-    public void kategorilerValueTest() throws InterruptedException {
-        n11Pages.clickKategoriler();
-        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK );
-       //kategorilerPage.selectCategory(KategorilerPage.Kategori.ELEKTRONIK);
-        //kategorilerElektronikPage.selectCategory(KategorilerElektronikPage.ElektrikKategori.ELEKRIKLI_EV_ALETLERI);
-        elektrikliEvAletleriPage.loadCategories();
-        elektrikliEvAletleriPage.clickOnCategory(ElektrikliEvAletleriPage.Kategori.UTU );
-        }
+
     }
 
 

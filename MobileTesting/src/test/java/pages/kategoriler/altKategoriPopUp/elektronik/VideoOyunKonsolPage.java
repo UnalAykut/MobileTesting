@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
-import pages.kategoriler.KategorilerElektronikPage;
+import pages.kategoriler.ElektronikKategorilerPage;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class VideoOyunKonsolPage extends BasePage {
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void clickOnCategory(KategorilerElektronikPage.Kategori kategori) {
+    public void clickOnCategory(ElektronikKategorilerPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
     public List<WebElement> categoryList(){
