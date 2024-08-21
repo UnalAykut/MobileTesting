@@ -4,10 +4,11 @@ import io.appium.java_client.AppiumDriver;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pages.KategorilerElektronikPage;
-import pages.KategorilerPage;
+import pages.kategoriler.KategorilerElektronikPage;
+import pages.kategoriler.KategorilerPage;
 import pages.N11Pages;
-import pages.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
+import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
+import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
 import util.DriverFactory;
 import util.ElementHelper;
 import util.Hooks;
@@ -20,6 +21,7 @@ public class BaseTest {
     protected KategorilerPage kategorilerPage;
     protected N11Pages n11Pages;
     protected KategorilerElektronikPage kategorilerElektronikPage;
+    protected BilgisayarPage bilgisayarPage;
     protected ElementHelper elementHelper;
     private Hooks hooks;
     @BeforeClass
@@ -38,6 +40,7 @@ public class BaseTest {
         kategorilerPage = new KategorilerPage(driver);
             kategorilerElektronikPage =new KategorilerElektronikPage( driver );
                 elektrikliEvAletleriPage=new ElektrikliEvAletleriPage( driver );
+                bilgisayarPage=new BilgisayarPage( driver );
     }
     @AfterClass
     public void tearDown() {

@@ -1,19 +1,26 @@
-package pages.altKategoriPopUp.elektronik;
+package pages.kategoriler.altKategoriPopUp.elektronik;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import pages.DisplayNameEnum;
+import pages.kategoriler.KategorilerPage;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BilgisayarPage extends BasePage {
-    @FindBy(xpath = "//*[contains(@resource-id, 'com.dmall.mfandroid:id/ivCategoryItem')]")
-    private List<WebElement> bilgisayarKategorileri;
+    private String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
+    private Map<String, WebElement> kategoriMap = new HashMap<>();
+    @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
+    private List<WebElement> kategoriElements;
+
     public BilgisayarPage(AppiumDriver driver) {
         super( driver );
     }
-    public enum BilgisayarKategori {
+    public enum BilgisayarKategori implements DisplayNameEnum {
         TABLET("Tablet"),
         DIZUSTU_BILGISAYAR("Dizüstü Bilgisayar"),
         MASAUSTU_BILGISAYAR("Masaüstü Bilgisayar"),
@@ -35,15 +42,20 @@ public class BilgisayarPage extends BasePage {
             this.displayName = displayName;
         }
 
+
+        @Override
         public String getDisplayName() {
             return displayName;
         }
     }
-    public List<WebElement> categoryList(){
-        return getCategoryElements(bilgisayarKategorileri);
+    public void loadCategories() {
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void bilgisayarKategorileri(BilgisayarPage.BilgisayarKategori kategori){
-        //clickOnCategory( bilgisayarKategorileri,kategori.getDisplayName() );
+    public void clickOnCategory(BilgisayarPage.BilgisayarKategori kategori) {
+        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
+    }
+    public List<WebElement> categoryList(){
+        return getCategoryElements(kategoriElements);
     }
 
 

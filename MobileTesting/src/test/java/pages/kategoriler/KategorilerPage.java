@@ -1,10 +1,12 @@
-package pages;
+package pages.kategoriler;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.BasePage;
+import pages.DisplayNameEnum;
 
 
 import java.util.HashMap;
@@ -22,7 +24,7 @@ public class KategorilerPage extends BasePage {
 
     private Map<String, WebElement> kategoriMap = new HashMap<>();
 
-    public enum Kategori {
+    public enum Kategori implements DisplayNameEnum {
         MODA("Moda"),
         ELEKTRONIK("Elektronik"),
         EV_YASAM("Ev & Yaşam"),
@@ -41,17 +43,21 @@ public class KategorilerPage extends BasePage {
             this.displayName = displayName;
         }
 
+
+        @Override
         public String getDisplayName() {
             return displayName;
         }
     }
     public void loadCategories() {
-        kategoriMap = BasePage.initializeKategoriMap(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
     public void clickOnCategory(Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
-
+    public List<WebElement> categoryList(){
+        return getCategoryElements(kategoriElements);
+    }
 
 
    /* public List<WebElement> getCategoryElements() {
@@ -61,8 +67,6 @@ public class KategorilerPage extends BasePage {
         clickOnCategory(kategoriler, kategori.getDisplayName());
     }*/
 
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
-    }
+
 
 }
