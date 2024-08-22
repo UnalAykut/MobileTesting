@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
-import pages.kategoriler.altKategoriPopUp.YapiMarketBahcePage;
+import pages.kategoriler.altKategoriPopUp.evYasam.YapiMarketBahcePage;
 import test.kategorilerTest.BaseTest;
 import java.util.List;
 
@@ -30,8 +30,9 @@ public class YapiMarketBahcePageTest extends BaseTest {
             List<WebElement> kategoriler = yapiMarketBahcePage.categoryList();
             WebElement kategoriGez = kategoriler.get(i);
             elementHelper.waitForVisibility(kategoriGez);
+            Thread.sleep(1000);
             elementHelper.clickElement(kategoriGez);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             elementHelper.searchBackButton();
             elementHelper.waitForVisibility(evVeYasamKategorilerPage.categoryList().get(0));
             evVeYasamKategorilerPage.loadCategories();

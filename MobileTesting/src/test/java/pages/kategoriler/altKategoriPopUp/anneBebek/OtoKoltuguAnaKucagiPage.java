@@ -34,7 +34,7 @@ public class OtoKoltuguAnaKucagiPage extends BasePage {
     }
 
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
 
     public void clickOnCategory(OtoKoltuguAnaKucagiPage.Kategori kategori) {

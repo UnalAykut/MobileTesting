@@ -45,7 +45,7 @@ public class KategorilerPage extends BasePage {
         }
     }
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
     public void clickOnCategory(Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);

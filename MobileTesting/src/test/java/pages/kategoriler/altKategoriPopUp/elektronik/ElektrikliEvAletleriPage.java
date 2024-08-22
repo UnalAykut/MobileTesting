@@ -37,7 +37,7 @@ public class ElektrikliEvAletleriPage extends BasePage {
         }
     }
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
     public void clickOnCategory(ElektrikliEvAletleriPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);

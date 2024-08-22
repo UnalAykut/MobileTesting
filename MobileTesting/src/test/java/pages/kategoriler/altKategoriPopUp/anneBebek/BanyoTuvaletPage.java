@@ -38,7 +38,7 @@ public class BanyoTuvaletPage extends BasePage {
     }
 
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
 
     public void clickOnCategory(BanyoTuvaletPage.Kategori kategori) {

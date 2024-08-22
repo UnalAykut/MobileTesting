@@ -37,7 +37,7 @@ public class EmzirmeUrunleriPage extends BasePage {
     }
 
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
 
     public void clickOnCategory(EmzirmeUrunleriPage.Kategori kategori) {

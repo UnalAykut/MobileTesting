@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
-import pages.kategoriler.altKategoriPopUp.DekorasyonAydinlatmaPage;
+import pages.kategoriler.altKategoriPopUp.evYasam.DekorasyonAydinlatmaPage;
 import test.kategorilerTest.BaseTest;
 import java.util.List;
 

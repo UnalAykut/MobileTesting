@@ -35,7 +35,7 @@ public class EvcilHayvanUrunleriKategorilerPage extends BasePage {
     }
 
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
 
     public void clickOnCategory(EvcilHayvanUrunleriKategorilerPage.Kategori kategori) {

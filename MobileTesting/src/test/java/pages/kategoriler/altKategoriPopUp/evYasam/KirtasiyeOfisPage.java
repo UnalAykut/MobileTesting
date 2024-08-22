@@ -1,4 +1,4 @@
-package pages.kategoriler.altKategoriPopUp;
+package pages.kategoriler.altKategoriPopUp.evYasam;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
@@ -41,7 +41,7 @@ public class KirtasiyeOfisPage extends BasePage {
     }
 
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
+        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
 
     public void clickOnCategory(Kategori kategori) {

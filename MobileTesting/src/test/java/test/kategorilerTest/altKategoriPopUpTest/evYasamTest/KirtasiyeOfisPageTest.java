@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
-import pages.kategoriler.altKategoriPopUp.KirtasiyeOfisPage;
+import pages.kategoriler.altKategoriPopUp.evYasam.KirtasiyeOfisPage;
 import test.kategorilerTest.BaseTest;
 import java.util.List;
 
