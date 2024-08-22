@@ -1,14 +1,19 @@
 package test.kategorilerTest;
 
-import org.openqa.selenium.WebElement;
+
 import org.testng.annotations.Test;
 import pages.kategoriler.ElektronikKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
-import test.kategorilerTest.BaseTest;
 
 
 public class ElektronikKategorilerPageTest extends BaseTest {
+    private BilgisayarPage bilgisayarPage;
+    @Override
+    public void intializePages() {
+        super.intializePages();
+        bilgisayarPage=new BilgisayarPage( driver );
+    }
 
     @Test
     public void elektronikKategorilerValueTest() throws InterruptedException {
@@ -22,7 +27,7 @@ public class ElektronikKategorilerPageTest extends BaseTest {
         Thread.sleep( 2000 );
         bilgisayarPage.loadCategories();
         bilgisayarPage.clickOnCategory( BilgisayarPage.Kategori.DIZUSTU_BILGISAYAR );
-
+        Thread.sleep( 2000 );
     }
 
 }

@@ -4,9 +4,7 @@ import io.appium.java_client.AppiumDriver;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pages.kategoriler.AnneBebekKategorilerPage;
-import pages.kategoriler.ElektronikKategorilerPage;
-import pages.kategoriler.KategorilerPage;
+import pages.kategoriler.*;
 import pages.N11Pages;
 import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
@@ -19,13 +17,20 @@ import java.net.MalformedURLException;
 
 public class BaseTest {
     protected AppiumDriver driver;
-    protected ElektrikliEvAletleriPage elektrikliEvAletleriPage;
     protected KategorilerPage kategorilerPage;
     protected N11Pages n11Pages;
-    protected ElektronikKategorilerPage elektronikKategorilerPage;
+    /*Kategorilerin içindeki ana kategoriler*/
     protected AnneBebekKategorilerPage anneBebekKategorilerPage;
-    protected BilgisayarPage bilgisayarPage;
-    protected FotografKameraPage fotografKameraPage;
+    protected ElektronikKategorilerPage elektronikKategorilerPage;
+    protected EvcilHayvanUrunleriKategorilerPage evcilHayvanUrunleriKategorilerPage;
+    protected EvVeYasamKategorilerPage evVeYasamKategorilerPage;
+    protected KitapMuzikFilmOyunKategorilerPage kitapMuzikFilmOyunKategorilerPage;
+    protected KozmetikKategorilerPage kozmetikKategorilerPage;
+    protected  ModaKategorilerPage modaKategorilerPage;
+    protected MucevherSaatKategorilerPage mucevherSaatKategorilerPage;
+    protected OtomotivMotosikletKategorilerPage otomotivMotosikletKategorilerPage;
+    protected SporOutdoorKategorilerPage sporOutdoorKategorilerPage;
+    protected YurtDisiUrunlerKategorilerPage yurtDisiUrunlerKategorilerPage;
     protected ElementHelper elementHelper;
     private Hooks hooks;
     @BeforeClass
@@ -42,9 +47,19 @@ public class BaseTest {
         elementHelper= new ElementHelper(driver);
         n11Pages = new N11Pages(driver);
         kategorilerPage = new KategorilerPage(driver);
-            elektronikKategorilerPage =new ElektronikKategorilerPage( driver );
             anneBebekKategorilerPage=new AnneBebekKategorilerPage( driver );
+            elektronikKategorilerPage =new ElektronikKategorilerPage( driver );
+            evcilHayvanUrunleriKategorilerPage=new EvcilHayvanUrunleriKategorilerPage( driver );
+            evVeYasamKategorilerPage=new EvVeYasamKategorilerPage( driver );
+            kitapMuzikFilmOyunKategorilerPage=new KitapMuzikFilmOyunKategorilerPage( driver );
+            kozmetikKategorilerPage=new KozmetikKategorilerPage( driver );
+            modaKategorilerPage=new ModaKategorilerPage( driver );
+            mucevherSaatKategorilerPage=new MucevherSaatKategorilerPage( driver );
+            otomotivMotosikletKategorilerPage=new OtomotivMotosikletKategorilerPage( driver );
+            sporOutdoorKategorilerPage=new SporOutdoorKategorilerPage( driver );
+            yurtDisiUrunlerKategorilerPage=new YurtDisiUrunlerKategorilerPage( driver );
     }
+
     @AfterClass
     public void tearDown() {
         DriverFactory.quitDriver();

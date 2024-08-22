@@ -8,28 +8,26 @@ import pages.DisplayNameEnum;
 
 import java.util.List;
 
-public class AnneBebekKategorilerPage extends BasePage {
-    public AnneBebekKategorilerPage(AppiumDriver driver) {
-        super( driver );
+public class KozmetikKategorilerPage extends BasePage {
+    public KozmetikKategorilerPage(AppiumDriver driver) {
+        super(driver);
     }
+
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;
 
     public enum Kategori implements DisplayNameEnum {
-        BEBEK_BEZI_ISLAK_MENDIL("Bebek Bezi & Islak Mendil"),
-        BEBEK_GIYIM("Bebek Giyim"),
-        HAMILE_GIYIM("Hamile Giyim"),
-        BEBEK_ARABALARI("Bebek Arabaları"),
-        OTO_KOLTUGU_ANA_KUCAGI("Oto Koltuğu & Ana Kucağı"),
-        BESLENME_MAMA_SANDALYESI("Beslenme & Mama Sandalyesi"),
-        BIBERON_AKSESUARLARI("Biberon ve Aksesuarları"),
-        EMZIRME_URUNLERI("Emzirme Ürünleri"),
-        YURUTEC_YURUME_YARDIMCILARI("Yürüteç, Yürüme Yardımcıları"),
-        BEBEK_ODASI_PARK_YATAK("Bebek Odası & Park Yatak"),
-        BEBEK_BAKIM_SAGLIK("Bebek Bakım & Sağlık"),
-        BEBEK_GUVENLIK("Bebek Güvenlik"),
-        BEBEK_OYUNCAKLARI("Bebek Oyuncakları"),
-        BANYO_TUVALET("Banyo & Tuvalet");
+        PARFUM_DEODORANT("Parfüm & Deodorant"),
+        SAC_BAKIM_SEKILLENDIRME("Saç Bakım & Şekillendirme"),
+        CILT_BAKIMI("Cilt Bakımı"),
+        MAKYAJ("Makyaj"),
+        SAGLIK_MEDIKAL_URUNLER("Sağlık & Medikal Ürünler"),
+        KADIN_BAKIM_URUNLERI("Kadın Bakım Ürünleri"),
+        ERKEK_BAKIM_URUNLERI("Erkek Bakım Ürünleri"),
+        GUZELLIK_SALONU_KUAFOR("Güzellik Salonu & Kuaför"),
+        AGIZ_DIS_BAKIM("Ağız & Diş Bakım"),
+        CINSEL_URUNLER("Cinsel Ürünler"),
+        EV_KOZMETIGI("Ev Kozmetiği");
 
         private String displayName;
 
@@ -46,12 +44,12 @@ public class AnneBebekKategorilerPage extends BasePage {
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath);
     }
-    public void clickOnCategory(AnneBebekKategorilerPage.Kategori kategori) {
+
+    public void clickOnCategory(KozmetikKategorilerPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
-    public List<WebElement> categoryList(){
+
+    public List<WebElement> categoryList() {
         return getCategoryElements(kategoriElements);
     }
-
-
 }
