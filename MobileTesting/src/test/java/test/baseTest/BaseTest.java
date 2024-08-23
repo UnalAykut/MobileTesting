@@ -1,4 +1,4 @@
-package test.kategorilerTest;
+package test.baseTest;
 
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.AfterClass;

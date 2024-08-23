@@ -3,6 +3,7 @@ package test.kategorilerTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.EvcilHayvanUrunleriKategorilerPage;
 import pages.kategoriler.KategorilerPage;
+import test.baseTest.BaseTest;
 
 public class EvcilHayvanUrunleriKategorilerPageTest extends BaseTest {
     private EvcilHayvanUrunleriKategorilerPage evcilHayvanUrunleriKategorilerPage;

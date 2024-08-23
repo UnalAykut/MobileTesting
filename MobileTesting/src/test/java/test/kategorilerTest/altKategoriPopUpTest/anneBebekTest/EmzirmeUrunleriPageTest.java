@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.AnneBebekKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.anneBebek.EmzirmeUrunleriPage;
-import test.kategorilerTest.BaseTest;
+import test.baseTest.BaseTest;
 
 public class EmzirmeUrunleriPageTest extends BaseTest {
     private EmzirmeUrunleriPage emzirmeUrunleriPage;

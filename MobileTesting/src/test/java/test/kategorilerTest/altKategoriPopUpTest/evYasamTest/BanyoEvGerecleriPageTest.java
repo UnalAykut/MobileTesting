@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.evYasam.BanyoEvGerecleriPage;
-import test.kategorilerTest.BaseTest;
+import test.baseTest.BaseTest;
 
 public class BanyoEvGerecleriPageTest extends BaseTest {
     private BanyoEvGerecleriPage banyoEvGerecleriPage;

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.evYasam.EvcilHayvanUrunleriPage;
-import test.kategorilerTest.BaseTest;
+import test.baseTest.BaseTest;
 
 public class EvcilHayvanUrunleriPageTest extends BaseTest {
     private EvcilHayvanUrunleriPage evcilHayvanUrunleriPage;

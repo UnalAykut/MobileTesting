@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.ElektronikKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.FotografKameraPage;
-import test.kategorilerTest.BaseTest;
+import test.baseTest.BaseTest;
 
 public class FotografKameraPageTest extends BaseTest {
     private FotografKameraPage fotografKameraPage;

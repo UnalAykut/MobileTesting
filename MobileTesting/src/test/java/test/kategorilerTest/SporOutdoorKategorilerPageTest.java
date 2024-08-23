@@ -3,6 +3,7 @@ package test.kategorilerTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.SporOutdoorKategorilerPage;
+import test.baseTest.BaseTest;
 
 public class SporOutdoorKategorilerPageTest extends BaseTest {
     private SporOutdoorKategorilerPage sporOutdoorKategorilerPage;

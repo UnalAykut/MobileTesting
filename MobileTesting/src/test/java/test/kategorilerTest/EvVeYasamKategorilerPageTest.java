@@ -3,6 +3,7 @@ package test.kategorilerTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
+import test.baseTest.BaseTest;
 
 public class EvVeYasamKategorilerPageTest extends BaseTest {
     private EvVeYasamKategorilerPage evVeYasamKategorilerPage;

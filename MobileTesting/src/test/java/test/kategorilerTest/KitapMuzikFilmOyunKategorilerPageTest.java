@@ -3,6 +3,7 @@ package test.kategorilerTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.KitapMuzikFilmOyunKategorilerPage;
+import test.baseTest.BaseTest;
 
 public class KitapMuzikFilmOyunKategorilerPageTest extends BaseTest {
     private KitapMuzikFilmOyunKategorilerPage kitapMuzikFilmOyunKategorilerPage;

@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.ElektronikKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
-import test.kategorilerTest.BaseTest;
+import test.baseTest.BaseTest;
 
 public class ElektrikliEvAletleriPageTest extends BaseTest {
     private ElektrikliEvAletleriPage elektrikliEvAletleriPage;

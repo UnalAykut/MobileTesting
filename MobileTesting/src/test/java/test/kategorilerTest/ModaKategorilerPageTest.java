@@ -3,6 +3,7 @@ package test.kategorilerTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.ModaKategorilerPage;
+import test.baseTest.BaseTest;
 
 public class ModaKategorilerPageTest extends BaseTest {
     private ModaKategorilerPage modaKategorilerPage;

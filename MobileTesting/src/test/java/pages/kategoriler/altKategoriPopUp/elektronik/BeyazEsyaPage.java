@@ -1,20 +1,13 @@
 package pages.kategoriler.altKategoriPopUp.elektronik;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
+import pages.AbstractCategoryPage;
 import pages.DisplayNameEnum;
-import pages.PageActions;
 
-import java.util.List;
-
-public class BeyazEsyaPage extends BasePage implements PageActions<BeyazEsyaPage.Kategori> {
+public class BeyazEsyaPage extends AbstractCategoryPage<BeyazEsyaPage.Kategori>{
     public BeyazEsyaPage(AppiumDriver driver) {
         super( driver );
     }
-    @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
-    private List<WebElement> kategoriElements;
 
     public enum Kategori implements DisplayNameEnum {
         ENDUSTRIYEL_BEYAZ_ESYALAR("Endüstriyel Beyaz Eşyalar"),
@@ -43,14 +36,9 @@ public class BeyazEsyaPage extends BasePage implements PageActions<BeyazEsyaPage
             return displayName;
         }
     }
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
-    public void clickOnCategory(BeyazEsyaPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 
 }

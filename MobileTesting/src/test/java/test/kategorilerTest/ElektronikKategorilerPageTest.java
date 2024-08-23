@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.ElektronikKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
+import test.baseTest.BaseTest;
 
 
 public class ElektronikKategorilerPageTest extends BaseTest {

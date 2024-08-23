@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.evYasam.YapiMarketBahcePage;
-import test.kategorilerTest.BaseTest;
+import test.baseTest.BaseTest;
 
 
 public class YapiMarketBahcePageTest extends BaseTest {

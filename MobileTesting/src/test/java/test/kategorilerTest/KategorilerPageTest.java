@@ -2,6 +2,7 @@ package test.kategorilerTest;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import test.baseTest.BaseTest;
 
 
 public class KategorilerPageTest extends BaseTest {

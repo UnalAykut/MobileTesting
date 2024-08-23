@@ -3,6 +3,7 @@ package test.kategorilerTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.YurtDisiUrunlerKategorilerPage;
+import test.baseTest.BaseTest;
 
 public class YurtDisiUrunlerKategorilerPageTest extends BaseTest {
     private YurtDisiUrunlerKategorilerPage yurtDisiUrunlerKategorilerPage;

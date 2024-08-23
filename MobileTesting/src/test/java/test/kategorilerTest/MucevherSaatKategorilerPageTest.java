@@ -3,6 +3,7 @@ package test.kategorilerTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.MucevherSaatKategorilerPage;
+import test.baseTest.BaseTest;
 
 public class MucevherSaatKategorilerPageTest extends BaseTest {
     private MucevherSaatKategorilerPage mucevherSaatKategorilerPage;
