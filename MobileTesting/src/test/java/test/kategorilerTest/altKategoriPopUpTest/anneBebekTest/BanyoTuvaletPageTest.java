@@ -26,7 +26,10 @@ public class BanyoTuvaletPageTest extends BaseTest {
         kategorilerPage.clickOnCategory(KategorilerPage.Kategori.ANNE_BEBEK);
         anneBebekKategorilerPage.loadCategories();
         anneBebekKategorilerPage.clickOnCategory(AnneBebekKategorilerPage.Kategori.BANYO_TUVALET);
-        banyoTuvaletPage.gezAndValidateCategories(banyoTuvaletPage, anneBebekKategorilerPage);
+        banyoTuvaletPage.gezAndValidateCategories(anneBebekKategorilerPage,
+                banyoTuvaletPage,
+                AnneBebekKategorilerPage.Kategori.BANYO_TUVALET,
+                BanyoTuvaletPage.Kategori.BANYO_GERECLERI_VE_AKSESUARLAR );
     }
 
 }

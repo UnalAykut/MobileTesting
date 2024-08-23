@@ -5,10 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+import pages.kategoriler.altKategoriPopUp.anneBebek.BanyoTuvaletPage;
 
 import java.util.List;
 
-public class AnneBebekKategorilerPage extends BasePage {
+public class AnneBebekKategorilerPage extends BasePage implements PageActions<AnneBebekKategorilerPage.Kategori> {
     public AnneBebekKategorilerPage(AppiumDriver driver) {
         super( driver );
     }
@@ -42,13 +44,17 @@ public class AnneBebekKategorilerPage extends BasePage {
             return displayName;
         }
     }
-
+    @Override
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
-    public void clickOnCategory(AnneBebekKategorilerPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
+
+    @Override
+    public void clickOnCategory(Kategori category) {
+        BasePage.clickOnCategory(kategoriMap, category, categoryTextXPath);
     }
+
+    @Override
     public List<WebElement> categoryList(){
         return getCategoryElements(kategoriElements);
     }

@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class BanyoTuvaletPage extends BasePage {
+public class BanyoTuvaletPage extends BasePage implements PageActions<BanyoTuvaletPage.Kategori> {
     public BanyoTuvaletPage(AppiumDriver driver) {
         super( driver );
     }
@@ -36,12 +38,12 @@ public class BanyoTuvaletPage extends BasePage {
             return displayName;
         }
     }
-
+    @Override
     public void loadCategories() {
         kategoriMap = loadCategories( kategoriElements, categoryTextXPath, Kategori.class );
     }
-
-    public void clickOnCategory(BanyoTuvaletPage.Kategori kategori) {
+    @Override
+    public void clickOnCategory(Kategori kategori) {
         BasePage.clickOnCategory( kategoriMap, kategori, categoryTextXPath );
     }
 

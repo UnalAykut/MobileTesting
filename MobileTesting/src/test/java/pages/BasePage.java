@@ -144,9 +144,14 @@ public abstract class BasePage {
             System.out.println("------------------------------------");
         }
     }
-    public void gezAndValidateCategories(BasePage nextPage, AnneBebekKategorilerPage anneBebekKategorilerPage) throws InterruptedException {
+    public <T1 extends Enum<T1> & DisplayNameEnum, T2 extends Enum<T2> & DisplayNameEnum> void gezAndValidateCategories(
+            PageActions<T1> previousPageActions,
+            PageActions<T2> currentPageActions,
+            T1 previousCategoryEnum,
+            T2 currentCategoryEnum
+    ) throws InterruptedException {
         // Kategoriler listesini al
-        List<WebElement> kategoriler = this.categoryList();
+        List<WebElement> kategoriler = currentPageActions.categoryList();
 
         for (int i = 0; i < kategoriler.size(); i++) {
             // Elementi döngü sırasında yeniden alarak 'StaleElementReferenceException' hatasını önleyin
@@ -172,14 +177,15 @@ public abstract class BasePage {
             elementHelper.searchBackButton();
 
             // Kategorilerin yeniden yüklenmesini bekleyin
-            elementHelper.waitForVisibility(anneBebekKategorilerPage.categoryList().get(0));
-            anneBebekKategorilerPage.loadCategories();
-            anneBebekKategorilerPage.clickOnCategory(AnneBebekKategorilerPage.Kategori.BANYO_TUVALET);
+            elementHelper.waitForVisibility(previousPageActions.categoryList().get(0));
+            previousPageActions.loadCategories();
+            previousPageActions.clickOnCategory(previousCategoryEnum);
 
             // Her döngüde kategorileri yeniden alarak 'StaleElementReferenceException' hatasını önleyin
-            kategoriler = this.categoryList();
+            kategoriler = currentPageActions.categoryList();
         }
     }
+
 
 
 
