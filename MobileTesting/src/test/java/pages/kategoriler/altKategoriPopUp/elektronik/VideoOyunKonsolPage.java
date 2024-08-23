@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
-import pages.kategoriler.ElektronikKategorilerPage;
 
 import java.util.List;
 

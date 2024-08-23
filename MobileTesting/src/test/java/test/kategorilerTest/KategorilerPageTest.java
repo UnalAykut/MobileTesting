@@ -2,9 +2,6 @@ package test.kategorilerTest;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.kategoriler.KategorilerPage;
-import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
-import test.kategorilerTest.BaseTest;
 
 
 public class KategorilerPageTest extends BaseTest {

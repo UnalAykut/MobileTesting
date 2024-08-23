@@ -1,17 +1,12 @@
 package pages.kategoriler;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class KategorilerPage extends BasePage {
     public KategorilerPage(AppiumDriver driver) {

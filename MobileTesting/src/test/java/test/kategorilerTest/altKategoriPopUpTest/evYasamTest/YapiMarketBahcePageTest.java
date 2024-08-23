@@ -1,13 +1,13 @@
 package test.kategorilerTest.altKategoriPopUpTest.evYasamTest;
 
 
-import org.openqa.selenium.WebElement;
+
 import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.evYasam.YapiMarketBahcePage;
 import test.kategorilerTest.BaseTest;
-import java.util.List;
+
 
 public class YapiMarketBahcePageTest extends BaseTest {
     private YapiMarketBahcePage yapiMarketBahcePage;
@@ -26,17 +26,6 @@ public class YapiMarketBahcePageTest extends BaseTest {
         evVeYasamKategorilerPage.loadCategories();
         evVeYasamKategorilerPage.clickOnCategory( EvVeYasamKategorilerPage.Kategori.YAPI_MARKET_BAHCE);
 
-        for (int i = 0; i < yapiMarketBahcePage.categoryList().size(); i++) {
-            List<WebElement> kategoriler = yapiMarketBahcePage.categoryList();
-            WebElement kategoriGez = kategoriler.get(i);
-            elementHelper.waitForVisibility(kategoriGez);
-            Thread.sleep(1000);
-            elementHelper.clickElement(kategoriGez);
-            Thread.sleep(1000);
-            elementHelper.searchBackButton();
-            elementHelper.waitForVisibility(evVeYasamKategorilerPage.categoryList().get(0));
-            evVeYasamKategorilerPage.loadCategories();
-            evVeYasamKategorilerPage.clickOnCategory(EvVeYasamKategorilerPage.Kategori.YAPI_MARKET_BAHCE);
-        }
+        yapiMarketBahcePage.gezAndValidateCategories(evVeYasamKategorilerPage, yapiMarketBahcePage, EvVeYasamKategorilerPage.Kategori.YAPI_MARKET_BAHCE);
     }
 }

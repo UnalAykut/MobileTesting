@@ -3,8 +3,8 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.kategoriler.KategorilerPage;
 import pages.N11Pages;
+import pages.kategoriler.KategorilerPage;
 import util.DriverFactory;
 
 public class n11StepDefinitions {

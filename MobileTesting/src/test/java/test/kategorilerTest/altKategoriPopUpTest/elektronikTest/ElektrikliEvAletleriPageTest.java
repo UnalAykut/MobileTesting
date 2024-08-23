@@ -1,13 +1,10 @@
 package test.kategorilerTest.altKategoriPopUpTest.elektronikTest;
 
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.kategoriler.ElektronikKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.elektronik.ElektrikliEvAletleriPage;
 import test.kategorilerTest.BaseTest;
-
-import java.util.List;
 
 public class ElektrikliEvAletleriPageTest extends BaseTest {
     private ElektrikliEvAletleriPage elektrikliEvAletleriPage;
@@ -23,17 +20,7 @@ public class ElektrikliEvAletleriPageTest extends BaseTest {
         kategorilerPage.clickOnCategory( KategorilerPage.Kategori.ELEKTRONIK);
         elektronikKategorilerPage.loadCategories();
         elektronikKategorilerPage.clickOnCategory( ElektronikKategorilerPage.Kategori.ELEKRIKLI_EV_ALETLERI);
-        for (int i = 0; i < elektrikliEvAletleriPage.categoryList().size(); i++) {
-            List<WebElement> kategoriler = elektrikliEvAletleriPage.categoryList(); // Her seferinde elementleri yeniden al
-            WebElement kategoriGez = kategoriler.get(i);
-            elementHelper.waitForVisibility(kategoriGez);
-            elementHelper.clickElement(kategoriGez);
-            Thread.sleep( 2000 );
-            elementHelper.searchBackButton();
-            elementHelper.waitForVisibility(elektrikliEvAletleriPage.categoryList().get(0));
-            elektronikKategorilerPage.loadCategories();
-            elektronikKategorilerPage.clickOnCategory( ElektronikKategorilerPage.Kategori.ELEKRIKLI_EV_ALETLERI);
-        }
+        elektrikliEvAletleriPage.gezAndValidateCategories(elektronikKategorilerPage, elektrikliEvAletleriPage, ElektronikKategorilerPage.Kategori.ELEKRIKLI_EV_ALETLERI);
     }
 
 }

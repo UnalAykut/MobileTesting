@@ -8,11 +8,13 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import pages.kategoriler.AnneBebekKategorilerPage;
 import util.ElementHelper;
 
 import java.time.Duration;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public abstract class BasePage {
 
@@ -147,8 +149,7 @@ public abstract class BasePage {
     public <T1 extends Enum<T1> & DisplayNameEnum, T2 extends Enum<T2> & DisplayNameEnum> void gezAndValidateCategories(
             PageActions<T1> previousPageActions,
             PageActions<T2> currentPageActions,
-            T1 previousCategoryEnum,
-            T2 currentCategoryEnum
+            T1 previousCategoryEnum
     ) throws InterruptedException {
         // Kategoriler listesini al
         List<WebElement> kategoriler = currentPageActions.categoryList();

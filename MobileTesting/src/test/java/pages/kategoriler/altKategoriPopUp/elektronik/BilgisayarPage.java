@@ -6,11 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
-import pages.kategoriler.KategorilerPage;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class BilgisayarPage extends BasePage implements PageActions<BilgisayarPage.Kategori> {
 

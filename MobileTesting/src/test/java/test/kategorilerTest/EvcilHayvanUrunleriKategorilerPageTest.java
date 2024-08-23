@@ -1,8 +1,8 @@
 package test.kategorilerTest;
 
 import org.testng.annotations.Test;
-import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.EvcilHayvanUrunleriKategorilerPage;
+import pages.kategoriler.KategorilerPage;
 
 public class EvcilHayvanUrunleriKategorilerPageTest extends BaseTest {
     private EvcilHayvanUrunleriKategorilerPage evcilHayvanUrunleriKategorilerPage;
