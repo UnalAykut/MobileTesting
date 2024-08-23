@@ -9,21 +9,21 @@ import java.util.List;
 
 public class BanyoTuvaletPage extends BasePage {
     public BanyoTuvaletPage(AppiumDriver driver) {
-        super(driver);
+        super( driver );
     }
 
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;
 
     public enum Kategori implements DisplayNameEnum {
-        BANYO_GERECLERI_VE_AKSESUARLAR("Banyo Gereçleri ve Aksesuarlar"),
-        BANYO_SUNGERI_KESE("Banyo Süngeri & Kese"),
-        HAVLU_BORNOZ("Havlu & Bornoz"),
-        KUVET_URUNLERI("Küvet Ürünleri"),
-        MAPRAGA_KOVA("Maşrapa & Kova"),
-        SABUN("Sabun"),
-        SAMPUAN_KREM("Şampuan & Krem"),
-        TUVALET_EGITIMI("Tuvalet Eğitimi");
+        BANYO_GERECLERI_VE_AKSESUARLAR( "Banyo Gereçleri ve Aksesuarlar" ),
+        BANYO_SUNGERI_KESE( "Banyo Süngeri & Kese" ),
+        HAVLU_BORNOZ( "Havlu & Bornoz" ),
+        KUVET_URUNLERI( "Küvet Ürünleri" ),
+        MAPRAGA_KOVA( "Maşrapa & Kova" ),
+        SABUN( "Sabun" ),
+        SAMPUAN_KREM( "Şampuan & Krem" ),
+        TUVALET_EGITIMI( "Tuvalet Eğitimi" );
 
         private final String displayName;
 
@@ -38,14 +38,16 @@ public class BanyoTuvaletPage extends BasePage {
     }
 
     public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
+        kategoriMap = loadCategories( kategoriElements, categoryTextXPath, Kategori.class );
     }
 
     public void clickOnCategory(BanyoTuvaletPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
+        BasePage.clickOnCategory( kategoriMap, kategori, categoryTextXPath );
     }
 
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
+    @Override
+    public List<WebElement> categoryList() {
+        return getCategoryElements( kategoriElements );
     }
+
 }

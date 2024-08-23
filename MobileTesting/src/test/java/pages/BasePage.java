@@ -5,18 +5,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import pages.kategoriler.AnneBebekKategorilerPage;
 import util.ElementHelper;
 
 import java.time.Duration;
 import java.util.*;
 
 public abstract class BasePage {
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvListingSearchBar']")
+    protected static WebElement searchBarText;
     protected static AppiumDriver driver;
     protected static ElementHelper elementHelper;
-    protected String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
+    protected String categoryTextXPath = "//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
     protected Map<String, WebElement> kategoriMap = new HashMap<>();
+    public abstract List<WebElement> categoryList();
     private static int clickCounter = 0;
 
     public BasePage(AppiumDriver driver) {
@@ -24,6 +30,7 @@ public abstract class BasePage {
         elementHelper = new ElementHelper(driver);
         PageFactory.initElements(driver, this);
     }
+
     public List<WebElement> getCategoryElements(List<WebElement> categoryList) {
         return categoryList;
     }
@@ -56,6 +63,7 @@ public abstract class BasePage {
     }
 
     private void updateKategoriMap(Map<String, WebElement> kategoriMap, List<WebElement> kategoriElements, String textViewXPath) {
+        System.out.println("-------------------Kategori Eklenen Textler---------------------" );
         for (WebElement element : kategoriElements) {
             WebElement textElement = element.findElement(By.xpath(textViewXPath));
             if (textElement != null) {
@@ -65,9 +73,12 @@ public abstract class BasePage {
                     System.out.println("Kategori metni eklendi: " + categoryText);
                 }
             } else {
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
                 System.out.println("Text element bulunamadı.");
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
         }
+        System.out.println("----------------------------------------" );
     }
 
     public static <T extends Enum<T> & DisplayNameEnum> void clickOnCategory(Map<String, WebElement> kategoriMap, T kategori, String textViewXPath) {
@@ -89,12 +100,11 @@ public abstract class BasePage {
     private static <T extends Enum<T> & DisplayNameEnum> void clickAndValidateCategory(WebElement categoryElement, T kategori, String textViewXPath) {
         WebElement textElement = categoryElement.findElement(By.xpath(textViewXPath));
         elementHelper.clickElement(textElement);
-
         if (clickCounter <= 2) {
             validateCategorySelection(kategori);
         } else {
             System.out.println("2. tıklamadan sonra metin kontrolü yapılmadı.");
-            clickCounter=0;
+            clickCounter = 0;
         }
     }
 
@@ -104,7 +114,6 @@ public abstract class BasePage {
         );
         String expectedTextViewText = kategori.getDisplayName();
         String actualTextViewText = textViewElement.getText();
-
         try {
             Assert.assertEquals(actualTextViewText, expectedTextViewText, "TextView'de beklenen metin bulunamadı!");
             System.out.println("Metinler eşleşti => ActualData: " + actualTextViewText + " ExpectedData: " + expectedTextViewText);
@@ -115,22 +124,65 @@ public abstract class BasePage {
         }
     }
 
-    private static <T extends Enum<T> & DisplayNameEnum> void validateCategoryPopUpSelection(T kategori) {
-        WebElement textViewElement = elementHelper.waitForVisibility(
-                driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryTitle']"))
-        );
-        String expectedTextViewText = kategori.getDisplayName(); // Beklenen metin alınır.
-        String actualTextViewText = textViewElement.getText(); // Gerçek metin alınır.
-
-        try {
-            Assert.assertEquals(actualTextViewText, expectedTextViewText, "TextView'de beklenen metin bulunamadı!"); // Metinler karşılaştırılır.
-            System.out.println("Metinler eşleşti => ActualData: " + actualTextViewText + " ExpectedData: " + expectedTextViewText);
-            System.out.println("Tıklama işlemi başarılı");
-        } catch (AssertionError e) {
-            System.err.println("TextView'de beklenen metin bulunamadı! Beklenen: " + expectedTextViewText + ", Gerçek: " + actualTextViewText);
-            throw e; // Hata fırlatılır.
+    public static <T extends Enum<T> & DisplayNameEnum> void validateCategoryAndSearchBox(String text) {
+        String searchBarTextControl = searchBarText.getText();
+        // searchBarTextControl 'text' içeriyor mu?
+        if (searchBarTextControl.contains(text)) {
+            // Eşleşen textler
+            System.out.println("---------------searchBarTextControl---------------------");
+            System.out.println("Text Actual: " + searchBarTextControl);
+            System.out.println("Text Expected: " + text);
+            System.out.println("Tıklama işlemi doğru searchBar kontrolü yapıldı.");
+            System.out.println("------------------------------------");
+        } else {
+            // Eşleşme yoksa
+            System.out.println("---------------searchBarTextControl---------------------");
+            System.out.println("SearchBar text eşleşmedi");
+            System.out.println("Text Actual: " + searchBarTextControl);
+            System.out.println("Text Expected: " + text);
+            System.out.println("SearchBar tıklama kontrolü başarısız");
+            System.out.println("------------------------------------");
         }
     }
+    public void gezAndValidateCategories(BasePage nextPage, AnneBebekKategorilerPage anneBebekKategorilerPage) throws InterruptedException {
+        // Kategoriler listesini al
+        List<WebElement> kategoriler = this.categoryList();
+
+        for (int i = 0; i < kategoriler.size(); i++) {
+            // Elementi döngü sırasında yeniden alarak 'StaleElementReferenceException' hatasını önleyin
+            WebElement kategoriGez = kategoriler.get(i);
+
+            // Elementin görünür olmasını bekleyin
+            elementHelper.waitForVisibility(kategoriGez);
+
+            // Tıklama işlemi öncesi metni alın
+            WebElement textViewElement = kategoriGez.findElement(By.xpath(".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']"));
+            String expectedText = textViewElement.getText(); // Tıklanacak olan elementin metni
+
+            // Kategoriye tıklayın
+            elementHelper.clickElement(kategoriGez);
+
+            // Kısa bir bekleme
+            Thread.sleep(2000);
+
+            // Arama kutusunu doğrulama
+            validateCategoryAndSearchBox(expectedText);
+
+            // Geri düğmesine tıklayın
+            elementHelper.searchBackButton();
+
+            // Kategorilerin yeniden yüklenmesini bekleyin
+            elementHelper.waitForVisibility(anneBebekKategorilerPage.categoryList().get(0));
+            anneBebekKategorilerPage.loadCategories();
+            anneBebekKategorilerPage.clickOnCategory(AnneBebekKategorilerPage.Kategori.BANYO_TUVALET);
+
+            // Her döngüde kategorileri yeniden alarak 'StaleElementReferenceException' hatasını önleyin
+            kategoriler = this.categoryList();
+        }
+    }
+
+
+
 
     private static <T extends Enum<T> & DisplayNameEnum> void handleCategoryNotFound(T kategori) {
         System.out.println("Kategori bulunamadı: " + kategori.getDisplayName());

@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import pages.BasePage;
 import pages.kategoriler.*;
 import pages.N11Pages;
 import pages.kategoriler.altKategoriPopUp.elektronik.BilgisayarPage;
