@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 
 import java.util.List;
 
-public class TelevizyonSesSistemleriPage extends BasePage {
+public class TelevizyonSesSistemleriPage extends BasePage implements PageActions<TelevizyonSesSistemleriPage.Kategori> {
 
     public TelevizyonSesSistemleriPage(AppiumDriver driver) {
         super( driver );

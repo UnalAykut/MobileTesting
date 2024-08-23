@@ -1,13 +1,15 @@
-package pages.kategoriler.altKategoriPopUp;
+package pages.kategoriler.altKategoriPopUp.evYasam;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class BanyoEvGerecleriPage extends BasePage {
+public class BanyoEvGerecleriPage extends BasePage implements PageActions<BanyoEvGerecleriPage.Kategori> {
     public BanyoEvGerecleriPage(AppiumDriver driver) {
         super(driver);
     }

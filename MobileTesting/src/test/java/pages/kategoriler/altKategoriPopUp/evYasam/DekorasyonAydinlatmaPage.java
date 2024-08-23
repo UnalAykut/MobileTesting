@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class DekorasyonAydinlatmaPage extends BasePage {
+public class DekorasyonAydinlatmaPage extends BasePage implements PageActions<DekorasyonAydinlatmaPage.Kategori> {
     public DekorasyonAydinlatmaPage(AppiumDriver driver) {
         super(driver);
     }

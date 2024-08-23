@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 
 import java.util.List;
 
-public class TelefonAksesuarlariPage extends BasePage {
+public class TelefonAksesuarlariPage extends BasePage implements PageActions<TelefonAksesuarlariPage.Kategori> {
     public TelefonAksesuarlariPage(AppiumDriver driver) {
         super( driver );
     }

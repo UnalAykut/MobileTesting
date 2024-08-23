@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 
 import java.util.List;
 
-public class MucevherSaatKategorilerPage extends BasePage {
+public class MucevherSaatKategorilerPage extends BasePage implements PageActions<MucevherSaatKategorilerPage.Kategori> {
     public MucevherSaatKategorilerPage(AppiumDriver driver) {
         super(driver);
     }
@@ -40,15 +41,15 @@ public class MucevherSaatKategorilerPage extends BasePage {
             return displayName;
         }
     }
-
+    @Override
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
-
+    @Override
     public void clickOnCategory(MucevherSaatKategorilerPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
-
+    @Override
     public List<WebElement> categoryList() {
         return getCategoryElements(kategoriElements);
     }

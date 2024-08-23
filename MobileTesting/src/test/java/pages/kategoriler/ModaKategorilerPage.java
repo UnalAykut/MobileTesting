@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 
 import java.util.List;
 
-public class ModaKategorilerPage extends BasePage {
+public class ModaKategorilerPage extends BasePage implements PageActions<ModaKategorilerPage.Kategori> {
     public ModaKategorilerPage(AppiumDriver driver) {
         super(driver);
     }
@@ -34,14 +35,17 @@ public class ModaKategorilerPage extends BasePage {
         }
     }
 
+    @Override
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
 
+    @Override
     public void clickOnCategory(ModaKategorilerPage.Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
 
+    @Override
     public List<WebElement> categoryList() {
         return getCategoryElements(kategoriElements);
     }

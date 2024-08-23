@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class BiberonAksesuarlariPage extends BasePage {
+public class BiberonAksesuarlariPage extends BasePage implements PageActions<BiberonAksesuarlariPage.Kategori> {
     public BiberonAksesuarlariPage(AppiumDriver driver) {
         super(driver);
     }

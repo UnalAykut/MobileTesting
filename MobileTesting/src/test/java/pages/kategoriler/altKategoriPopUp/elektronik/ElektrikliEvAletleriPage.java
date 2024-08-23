@@ -5,12 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ElektrikliEvAletleriPage extends BasePage {
+public class ElektrikliEvAletleriPage extends BasePage implements PageActions<ElektrikliEvAletleriPage.Kategori> {
     private Map<String, WebElement> kategoriMap = new HashMap<>();
     private String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
     public ElektrikliEvAletleriPage(AppiumDriver driver) {

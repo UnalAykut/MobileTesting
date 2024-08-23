@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 import pages.kategoriler.ElektronikKategorilerPage;
 
 import java.util.List;
 
-public class VideoOyunKonsolPage extends BasePage {
+public class VideoOyunKonsolPage extends BasePage implements PageActions<VideoOyunKonsolPage.Kategori> {
     public VideoOyunKonsolPage(AppiumDriver driver) {
         super( driver );
     }
@@ -41,7 +42,7 @@ public class VideoOyunKonsolPage extends BasePage {
     public void loadCategories() {
         kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
     }
-    public void clickOnCategory(ElektronikKategorilerPage.Kategori kategori) {
+    public void clickOnCategory(Kategori kategori) {
         BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
     }
     public List<WebElement> categoryList(){

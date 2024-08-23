@@ -5,13 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 import pages.kategoriler.KategorilerPage;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BilgisayarPage extends BasePage {
+public class BilgisayarPage extends BasePage implements PageActions<BilgisayarPage.Kategori> {
 
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
     private List<WebElement> kategoriElements;

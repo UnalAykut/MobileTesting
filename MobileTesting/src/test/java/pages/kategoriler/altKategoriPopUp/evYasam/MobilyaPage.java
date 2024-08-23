@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class MobilyaPage extends BasePage {
+public class MobilyaPage extends BasePage implements PageActions<MobilyaPage.Kategori> {
     public MobilyaPage(AppiumDriver driver) {
         super(driver);
     }

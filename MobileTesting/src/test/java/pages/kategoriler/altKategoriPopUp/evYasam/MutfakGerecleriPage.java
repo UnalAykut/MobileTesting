@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class MutfakGerecleriPage extends BasePage {
+public class MutfakGerecleriPage extends BasePage implements PageActions<MutfakGerecleriPage.Kategori> {
     public MutfakGerecleriPage(AppiumDriver driver) {
         super(driver);
     }

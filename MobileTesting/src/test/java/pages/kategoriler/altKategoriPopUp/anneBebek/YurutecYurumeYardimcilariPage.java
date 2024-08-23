@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class YurutecYurumeYardimcilariPage extends BasePage {
+public class YurutecYurumeYardimcilariPage extends BasePage implements PageActions<YurutecYurumeYardimcilariPage.Kategori> {
     public YurutecYurumeYardimcilariPage(AppiumDriver driver) {
         super(driver);
     }

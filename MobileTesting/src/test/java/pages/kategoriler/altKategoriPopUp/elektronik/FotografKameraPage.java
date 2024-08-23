@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
 
 import java.util.List;
 
-public class FotografKameraPage extends BasePage {
+public class FotografKameraPage extends BasePage implements PageActions<FotografKameraPage.Kategori> {
     public FotografKameraPage(AppiumDriver driver) {
         super( driver );
     }

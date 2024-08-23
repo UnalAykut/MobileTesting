@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class BeslenmeMamaSandalyesiPage extends BasePage {
+public class BeslenmeMamaSandalyesiPage extends BasePage implements PageActions<BeslenmeMamaSandalyesiPage.Kategori> {
     public BeslenmeMamaSandalyesiPage(AppiumDriver driver) {
         super(driver);
     }

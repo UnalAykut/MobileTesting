@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.DisplayNameEnum;
+import pages.PageActions;
+
 import java.util.List;
 
-public class KirtasiyeOfisPage extends BasePage {
+public class KirtasiyeOfisPage extends BasePage implements PageActions<KirtasiyeOfisPage.Kategori> {
     public KirtasiyeOfisPage(AppiumDriver driver) {
         super(driver);
     }
