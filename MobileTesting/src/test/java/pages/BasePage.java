@@ -42,7 +42,7 @@ public abstract class BasePage {
         return initializeKategoriMap(kategoriElements, categoryTextXPath, expectedCategoryCount);
     }
 
-    public Map<String, WebElement> initializeKategoriMap(List<WebElement> kategoriElements, String textViewXPath, int expectedCategoryCount) {
+    private Map<String, WebElement> initializeKategoriMap(List<WebElement> kategoriElements, String textViewXPath, int expectedCategoryCount) {
         Map<String, WebElement> kategoriMap = new HashMap<>();
         int previousSize = 0;
 
@@ -126,7 +126,7 @@ public abstract class BasePage {
         }
     }
 
-    public static <T extends Enum<T> & DisplayNameEnum> void validateCategoryAndSearchBox(String text) {
+    private static <T extends Enum<T> & DisplayNameEnum> void validateCategoryAndSearchBox(String text) {
         String searchBarTextControl = searchBarText.getText();
         // searchBarTextControl 'text' içeriyor mu?
         if (searchBarTextControl.contains(text)) {

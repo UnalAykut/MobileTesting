@@ -24,7 +24,6 @@ public class BeyazEsyaPage extends AbstractCategoryPage<BeyazEsyaPage.Kategori>{
         YEDEK_PARCA_AKSESUAR("Yedek Parça & Aksesuar"),
         DIGER_BEYAZ_ESYALAR("Diğer Beyaz Eşyalar"),
         ISITMA_SOGUTMA("Isıtma & Soğutma");
-
         private final String displayName;
 
         Kategori(String displayName) {
