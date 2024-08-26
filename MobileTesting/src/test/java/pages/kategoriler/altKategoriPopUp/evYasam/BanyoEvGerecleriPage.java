@@ -3,13 +3,15 @@ package pages.kategoriler.altKategoriPopUp.evYasam;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
+import pages.kategoriler.altKategoriPopUp.anneBebek.BebekArabasiPage;
 
 import java.util.List;
 
-public class BanyoEvGerecleriPage extends BasePage implements PageActions<BanyoEvGerecleriPage.Kategori> {
+public class BanyoEvGerecleriPage extends AbstractCategoryPage<BanyoEvGerecleriPage.Kategori> {
     public BanyoEvGerecleriPage(AppiumDriver driver) {
         super(driver);
     }
@@ -44,5 +46,10 @@ public class BanyoEvGerecleriPage extends BasePage implements PageActions<BanyoE
 
     public List<WebElement> categoryList(){
         return getCategoryElements(kategoriElements);
+    }
+
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 }

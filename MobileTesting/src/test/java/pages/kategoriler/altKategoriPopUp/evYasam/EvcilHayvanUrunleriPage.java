@@ -3,13 +3,15 @@ package pages.kategoriler.altKategoriPopUp.evYasam;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
+import pages.kategoriler.altKategoriPopUp.anneBebek.BebekArabasiPage;
 
 import java.util.List;
 
-public class EvcilHayvanUrunleriPage extends BasePage implements PageActions<EvcilHayvanUrunleriPage.Kategori> {
+public class EvcilHayvanUrunleriPage extends AbstractCategoryPage<EvcilHayvanUrunleriPage.Kategori> {
     public EvcilHayvanUrunleriPage(AppiumDriver driver) {
         super(driver);
     }
@@ -48,5 +50,10 @@ public class EvcilHayvanUrunleriPage extends BasePage implements PageActions<Evc
 
     public List<WebElement> categoryList(){
         return getCategoryElements(kategoriElements);
+    }
+
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 }

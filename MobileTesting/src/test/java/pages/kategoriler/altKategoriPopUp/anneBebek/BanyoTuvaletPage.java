@@ -3,15 +3,20 @@ package pages.kategoriler.altKategoriPopUp.anneBebek;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
+import pages.AbstractCategoryPage;
 import pages.DisplayNameEnum;
-import pages.PageActions;
+;
 
 import java.util.List;
 
-public class BanyoTuvaletPage extends BasePage implements PageActions<BanyoTuvaletPage.Kategori> {
+public class BanyoTuvaletPage extends  AbstractCategoryPage<BanyoTuvaletPage.Kategori> {
     public BanyoTuvaletPage(AppiumDriver driver) {
         super( driver );
+    }
+
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
@@ -38,18 +43,6 @@ public class BanyoTuvaletPage extends BasePage implements PageActions<BanyoTuval
             return displayName;
         }
     }
-    @Override
-    public void loadCategories() {
-        kategoriMap = loadCategories( kategoriElements, categoryTextXPath, Kategori.class );
-    }
-    @Override
-    public void clickOnCategory(Kategori kategori) {
-        BasePage.clickOnCategory( kategoriMap, kategori, categoryTextXPath );
-    }
 
-    @Override
-    public List<WebElement> categoryList() {
-        return getCategoryElements( kategoriElements );
-    }
 
 }

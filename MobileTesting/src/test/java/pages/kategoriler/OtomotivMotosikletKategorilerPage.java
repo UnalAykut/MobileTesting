@@ -3,13 +3,14 @@ package pages.kategoriler;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
 
 import java.util.List;
 
-public class OtomotivMotosikletKategorilerPage extends BasePage implements PageActions<OtomotivMotosikletKategorilerPage.Kategori> {
+public class OtomotivMotosikletKategorilerPage extends AbstractCategoryPage {
     public OtomotivMotosikletKategorilerPage(AppiumDriver driver) {
         super(driver);
     }
@@ -36,16 +37,9 @@ public class OtomotivMotosikletKategorilerPage extends BasePage implements PageA
             return displayName;
         }
     }
+
     @Override
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
-    @Override
-    public void clickOnCategory(OtomotivMotosikletKategorilerPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-    @Override
-    public List<WebElement> categoryList() {
-        return getCategoryElements(kategoriElements);
+    protected Class getCategoryEnumClass() {
+        return Kategori.class;
     }
 }

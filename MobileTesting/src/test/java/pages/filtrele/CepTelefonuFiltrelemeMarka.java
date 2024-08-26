@@ -8,10 +8,7 @@ import pages.DisplayNameEnum;
 import java.util.List;
 
 public class CepTelefonuFiltrelemeMarka extends AbstractFiltrelemePage<CepTelefonuFiltrelemeMarka.FilterOption> {
-    @Override
-    public List<WebElement> categoryList() {
-        return null;
-    }
+
 
     public CepTelefonuFiltrelemeMarka(AppiumDriver driver) {
         super( driver );

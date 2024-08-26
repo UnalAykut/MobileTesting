@@ -3,15 +3,21 @@ package pages.kategoriler.altKategoriPopUp.anneBebek;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
 
 import java.util.List;
 
-public class HamileGiyimPage extends BasePage implements PageActions<HamileGiyimPage.Kategori> {
+public class HamileGiyimPage extends AbstractCategoryPage<HamileGiyimPage.Kategori> {
     public HamileGiyimPage(AppiumDriver driver) {
         super(driver);
+    }
+
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 
     @FindBy(xpath = "//android.view.ViewGroup[android.widget.ImageView[@resource-id='com.dmall.mfandroid:id/ivCategoryItem'] and android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']]")
@@ -33,15 +39,5 @@ public class HamileGiyimPage extends BasePage implements PageActions<HamileGiyim
         }
     }
 
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
 
-    public void clickOnCategory(HamileGiyimPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
-    }
 }

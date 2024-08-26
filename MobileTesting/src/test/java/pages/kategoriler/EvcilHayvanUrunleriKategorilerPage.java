@@ -3,13 +3,13 @@ package pages.kategoriler;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
+import pages.AbstractCategoryPage;
 import pages.DisplayNameEnum;
-import pages.PageActions;
+
 
 import java.util.List;
 
-public class EvcilHayvanUrunleriKategorilerPage extends BasePage implements PageActions<EvcilHayvanUrunleriKategorilerPage.Kategori> {
+public class EvcilHayvanUrunleriKategorilerPage extends AbstractCategoryPage {
     public EvcilHayvanUrunleriKategorilerPage(AppiumDriver driver) {
         super(driver);
     }
@@ -34,16 +34,9 @@ public class EvcilHayvanUrunleriKategorilerPage extends BasePage implements Page
             return displayName;
         }
     }
+
     @Override
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
-    @Override
-    public void clickOnCategory(EvcilHayvanUrunleriKategorilerPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-    @Override
-    public List<WebElement> categoryList() {
-        return getCategoryElements(kategoriElements);
+    protected Class getCategoryEnumClass() {
+        return Kategori.class;
     }
 }

@@ -3,13 +3,14 @@ package pages.kategoriler.altKategoriPopUp.anneBebek;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
 
 import java.util.List;
 
-public class BeslenmeMamaSandalyesiPage extends BasePage implements PageActions<BeslenmeMamaSandalyesiPage.Kategori> {
+public class BeslenmeMamaSandalyesiPage extends AbstractCategoryPage<BeslenmeMamaSandalyesiPage.Kategori> {
     public BeslenmeMamaSandalyesiPage(AppiumDriver driver) {
         super(driver);
     }
@@ -45,5 +46,10 @@ public class BeslenmeMamaSandalyesiPage extends BasePage implements PageActions<
 
     public List<WebElement> categoryList(){
         return getCategoryElements(kategoriElements);
+    }
+
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 }

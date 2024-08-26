@@ -24,7 +24,7 @@ public abstract class BasePage {
     protected static ElementHelper elementHelper;
     protected String categoryTextXPath = "//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
     protected Map<String, WebElement> kategoriMap = new HashMap<>();
-    public abstract List<WebElement> categoryList();
+
     private static int clickCounter = 0;
 
     public BasePage(AppiumDriver driver) {
@@ -39,6 +39,7 @@ public abstract class BasePage {
 
     public <T extends Enum<T> & DisplayNameEnum> Map<String, WebElement> loadCategories(List<WebElement> kategoriElements, String categoryTextXPath, Class<T> enumClass) {
         int expectedCategoryCount = enumClass.getEnumConstants().length;
+        System.out.println("Enumdan gelen kategori sayisi=>"+expectedCategoryCount);
         return initializeKategoriMap(kategoriElements, categoryTextXPath, expectedCategoryCount);
     }
 
@@ -80,11 +81,14 @@ public abstract class BasePage {
                 System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
         }
+        System.out.println("Eklenen Kategori Metni Sayisi=>"+kategoriMap.size());
         System.out.println("----------------------------------------" );
     }
 
     public static <T extends Enum<T> & DisplayNameEnum> void clickOnCategory(Map<String, WebElement> kategoriMap, T kategori, String textViewXPath) {
+
         clickCounter++;
+
         String categoryName = kategori.getDisplayName().trim().toLowerCase();
         WebElement categoryElement = kategoriMap.get(categoryName);
 
@@ -147,8 +151,8 @@ public abstract class BasePage {
         }
     }
     public <T1 extends Enum<T1> & DisplayNameEnum, T2 extends Enum<T2> & DisplayNameEnum> void gezAndValidateCategories(
-            PageActions<T1> previousPageActions,
-            PageActions<T2> currentPageActions,
+            PageActions<T1> previousPageActions,//önceki kategori
+            PageActions<T2> currentPageActions,//şuan üzerinde yapılan işlem
             T1 previousCategoryEnum
     ) throws InterruptedException {
         // Kategoriler listesini al

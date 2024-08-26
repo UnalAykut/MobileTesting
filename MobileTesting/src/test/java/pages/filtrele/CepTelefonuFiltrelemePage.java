@@ -8,10 +8,8 @@ import java.util.List;
 
 public class CepTelefonuFiltrelemePage extends AbstractFiltrelemePage<CepTelefonuFiltrelemePage.FilterOption> {
 
-    @Override
-    public List<WebElement> categoryList() {
-        return null; // Bu metodu ihtiyacınıza göre implement edebilirsiniz
-    }
+   // Bu metodu ihtiyacınıza göre implement edebilirsiniz
+
 
     public CepTelefonuFiltrelemePage(AppiumDriver driver) {
         super(driver);

@@ -3,25 +3,19 @@ package test.kategorilerTest.altKategoriPopUpTest.evYasamTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.EvVeYasamKategorilerPage;
 import pages.kategoriler.KategorilerPage;
+import pages.kategoriler.altKategoriPopUp.anneBebek.BanyoTuvaletPage;
 import pages.kategoriler.altKategoriPopUp.evYasam.DekorasyonAydinlatmaPage;
+import test.baseTest.AbstractBaseCategoryTest;
 import test.baseTest.BaseTest;
 
-public class DekorasyonAydinlatmaPageTest extends BaseTest {
-    private DekorasyonAydinlatmaPage dekorasyonAydinlatmaPage;
-
-    @Override
-    public void intializePages() {
-        super.intializePages();
-        dekorasyonAydinlatmaPage = new DekorasyonAydinlatmaPage(driver);
-    }
+public class DekorasyonAydinlatmaPageTest extends AbstractBaseCategoryTest {
 
     @Test
     public void dekorasyonAydinlatmaKategorilerTest() throws InterruptedException {
-        n11Pages.clickKategoriler();
-        kategorilerPage.loadCategories();
-        kategorilerPage.clickOnCategory( KategorilerPage.Kategori.EV_YASAM);
-        evVeYasamKategorilerPage.loadCategories();
-        evVeYasamKategorilerPage.clickOnCategory( EvVeYasamKategorilerPage.Kategori.DEKORASYON_AYDINLATMA);
-        dekorasyonAydinlatmaPage.gezAndValidateCategories(evVeYasamKategorilerPage, dekorasyonAydinlatmaPage, EvVeYasamKategorilerPage.Kategori.DEKORASYON_AYDINLATMA);
+        performCategoryTest(KategorilerPage.Kategori.EV_YASAM,
+                EvVeYasamKategorilerPage.class,
+                EvVeYasamKategorilerPage.Kategori.DEKORASYON_AYDINLATMA,
+                BanyoTuvaletPage.class
+        );
     }
 }

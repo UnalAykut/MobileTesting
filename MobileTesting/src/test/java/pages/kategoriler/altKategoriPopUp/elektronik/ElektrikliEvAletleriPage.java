@@ -3,15 +3,17 @@ package pages.kategoriler.altKategoriPopUp.elektronik;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
+import pages.kategoriler.altKategoriPopUp.anneBebek.BebekArabasiPage;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ElektrikliEvAletleriPage extends BasePage implements PageActions<ElektrikliEvAletleriPage.Kategori> {
+public class ElektrikliEvAletleriPage extends AbstractCategoryPage<ElektrikliEvAletleriPage.Kategori> {
     private Map<String, WebElement> kategoriMap = new HashMap<>();
     private String categoryTextXPath = ".//android.widget.TextView[@resource-id='com.dmall.mfandroid:id/tvCategoryItem']";
     public ElektrikliEvAletleriPage(AppiumDriver driver) {
@@ -37,13 +39,9 @@ public class ElektrikliEvAletleriPage extends BasePage implements PageActions<El
             return displayName;
         }
     }
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
-    public void clickOnCategory(ElektrikliEvAletleriPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
+
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 }

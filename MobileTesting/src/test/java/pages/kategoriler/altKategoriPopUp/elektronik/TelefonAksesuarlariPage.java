@@ -3,13 +3,15 @@ package pages.kategoriler.altKategoriPopUp.elektronik;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
+import pages.kategoriler.altKategoriPopUp.anneBebek.BebekArabasiPage;
 
 import java.util.List;
 
-public class TelefonAksesuarlariPage extends BasePage implements PageActions<TelefonAksesuarlariPage.Kategori> {
+public class TelefonAksesuarlariPage extends AbstractCategoryPage<TelefonAksesuarlariPage.Kategori> {
     public TelefonAksesuarlariPage(AppiumDriver driver) {
         super( driver );
     }
@@ -34,16 +36,13 @@ public class TelefonAksesuarlariPage extends BasePage implements PageActions<Tel
         }
     }
 
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
+
+
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
-    public void clickOnCategory(TelefonAksesuarlariPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
-    }
-        }
+}
 
 
 

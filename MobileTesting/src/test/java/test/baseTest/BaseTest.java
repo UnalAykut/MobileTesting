@@ -7,7 +7,7 @@ import pages.N11Pages;
 import pages.kategoriler.*;
 import util.DriverFactory;
 import util.ElementHelper;
-import util.Hooks;
+
 
 import java.net.MalformedURLException;
 
@@ -28,7 +28,7 @@ public class BaseTest {
     protected SporOutdoorKategorilerPage sporOutdoorKategorilerPage;
     protected YurtDisiUrunlerKategorilerPage yurtDisiUrunlerKategorilerPage;
     protected ElementHelper elementHelper;
-    private Hooks hooks;
+
     @BeforeClass
     public void setUp() throws MalformedURLException {
         System.out.println("setUp() metodu çalışıyor");

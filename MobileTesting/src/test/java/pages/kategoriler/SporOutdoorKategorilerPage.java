@@ -3,13 +3,14 @@ package pages.kategoriler;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
 
 import java.util.List;
 
-public class SporOutdoorKategorilerPage extends BasePage implements PageActions<SporOutdoorKategorilerPage.Kategori> {
+public class SporOutdoorKategorilerPage extends AbstractCategoryPage {
     public SporOutdoorKategorilerPage(AppiumDriver driver) {
         super(driver);
     }
@@ -40,15 +41,7 @@ public class SporOutdoorKategorilerPage extends BasePage implements PageActions<
         }
     }
     @Override
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
-    @Override
-    public void clickOnCategory(SporOutdoorKategorilerPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-    @Override
-    public List<WebElement> categoryList() {
-        return getCategoryElements(kategoriElements);
+    protected Class getCategoryEnumClass() {
+        return null;
     }
 }

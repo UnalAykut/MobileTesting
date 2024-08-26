@@ -15,11 +15,6 @@ public class N11Pages extends BasePage{
     @FindBy(xpath = "//android.view.ViewGroup[@resource-id='com.dmall.mfandroid:id/giybiFilterShowResultsBTN']")
     private WebElement sonuclariGosterButton;
 
-    @Override
-    public List<WebElement> categoryList() {
-        return null;
-    }
-
     public N11Pages(AppiumDriver driver) {
         super( driver );
     }

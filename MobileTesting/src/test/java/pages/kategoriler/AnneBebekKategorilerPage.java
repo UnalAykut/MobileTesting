@@ -3,13 +3,15 @@ package pages.kategoriler;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
+import pages.kategoriler.altKategoriPopUp.elektronik.BeyazEsyaPage;
 
 import java.util.List;
 
-public class AnneBebekKategorilerPage extends BasePage implements PageActions<AnneBebekKategorilerPage.Kategori> {
+public class AnneBebekKategorilerPage extends AbstractCategoryPage {
     public AnneBebekKategorilerPage(AppiumDriver driver) {
         super( driver );
     }
@@ -43,19 +45,10 @@ public class AnneBebekKategorilerPage extends BasePage implements PageActions<An
             return displayName;
         }
     }
-    @Override
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
 
     @Override
-    public void clickOnCategory(Kategori category) {
-        BasePage.clickOnCategory(kategoriMap, category, categoryTextXPath);
-    }
-
-    @Override
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
+    protected Class getCategoryEnumClass() {
+         return Kategori.class;
     }
 
 

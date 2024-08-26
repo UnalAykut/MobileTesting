@@ -3,23 +3,19 @@ package test.kategorilerTest.altKategoriPopUpTest.anneBebekTest;
 import org.testng.annotations.Test;
 import pages.kategoriler.AnneBebekKategorilerPage;
 import pages.kategoriler.KategorilerPage;
+import pages.kategoriler.altKategoriPopUp.anneBebek.BanyoTuvaletPage;
 import pages.kategoriler.altKategoriPopUp.anneBebek.BebekBeziIslakMendilPage;
+import test.baseTest.AbstractBaseCategoryTest;
 import test.baseTest.BaseTest;
 
-public class BebekBeziPageTest extends BaseTest {
-    private BebekBeziIslakMendilPage bebekBeziIslakMendilPage;
-    @Override
-    public void intializePages() {
-        super.intializePages();
-        bebekBeziIslakMendilPage = new BebekBeziIslakMendilPage(driver);
-    }
+public class BebekBeziPageTest extends AbstractBaseCategoryTest {
+
     @Test
     public void bebekBeziKategorilerTest() throws InterruptedException {
-        n11Pages.clickKategoriler();
-        kategorilerPage.loadCategories();
-        kategorilerPage.clickOnCategory(KategorilerPage.Kategori.ANNE_BEBEK);
-        anneBebekKategorilerPage.loadCategories();
-        anneBebekKategorilerPage.clickOnCategory(AnneBebekKategorilerPage.Kategori.BEBEK_BEZI_ISLAK_MENDIL);
-        bebekBeziIslakMendilPage.gezAndValidateCategories( anneBebekKategorilerPage,bebekBeziIslakMendilPage, AnneBebekKategorilerPage.Kategori.BEBEK_BEZI_ISLAK_MENDIL );
+        performCategoryTest(KategorilerPage.Kategori.ANNE_BEBEK,
+                AnneBebekKategorilerPage.class,
+                AnneBebekKategorilerPage.Kategori.BEBEK_BEZI_ISLAK_MENDIL,
+                BanyoTuvaletPage.class
+        );
     }
 }

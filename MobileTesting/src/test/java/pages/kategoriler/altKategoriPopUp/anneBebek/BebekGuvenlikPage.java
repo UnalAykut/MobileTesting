@@ -3,13 +3,14 @@ package pages.kategoriler.altKategoriPopUp.anneBebek;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractCategoryPage;
 import pages.BasePage;
 import pages.DisplayNameEnum;
 import pages.PageActions;
 
 import java.util.List;
 
-public class BebekGuvenlikPage extends BasePage implements PageActions<BebekGuvenlikPage.Kategori> {
+public class BebekGuvenlikPage extends AbstractCategoryPage<BebekGuvenlikPage.Kategori> {
     public BebekGuvenlikPage(AppiumDriver driver) {
         super(driver);
     }
@@ -37,15 +38,8 @@ public class BebekGuvenlikPage extends BasePage implements PageActions<BebekGuve
         }
     }
 
-    public void loadCategories() {
-        kategoriMap = loadCategories(kategoriElements, categoryTextXPath,Kategori.class);
-    }
-
-    public void clickOnCategory(BebekGuvenlikPage.Kategori kategori) {
-        BasePage.clickOnCategory(kategoriMap, kategori, categoryTextXPath);
-    }
-
-    public List<WebElement> categoryList(){
-        return getCategoryElements(kategoriElements);
+    @Override
+    protected Class<Kategori> getCategoryEnumClass() {
+        return Kategori.class;
     }
 }
