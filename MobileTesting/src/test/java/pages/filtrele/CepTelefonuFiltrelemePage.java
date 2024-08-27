@@ -1,10 +1,7 @@
 package pages.filtrele;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import pages.DisplayNameEnum;
-import java.util.List;
 
 public class CepTelefonuFiltrelemePage extends AbstractFiltrelemePage<CepTelefonuFiltrelemePage.FilterOption> {
 

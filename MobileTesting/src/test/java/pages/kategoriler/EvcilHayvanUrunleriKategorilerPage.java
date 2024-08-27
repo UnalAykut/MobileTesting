@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import pages.AbstractCategoryPage;
 import pages.DisplayNameEnum;
 
-
 import java.util.List;
 
 public class EvcilHayvanUrunleriKategorilerPage extends AbstractCategoryPage {

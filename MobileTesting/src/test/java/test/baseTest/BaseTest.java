@@ -8,7 +8,6 @@ import pages.kategoriler.*;
 import util.DriverFactory;
 import util.ElementHelper;
 
-
 import java.net.MalformedURLException;
 
 public class BaseTest {

@@ -2,10 +2,10 @@ package test.baseTest;
 
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.BeforeClass;
-import pages.kategoriler.KategorilerPage;
-import pages.N11Pages;
 import pages.AbstractCategoryPage;
 import pages.DisplayNameEnum;
+import pages.N11Pages;
+import pages.kategoriler.KategorilerPage;
 
 public abstract class AbstractBaseCategoryTest extends BaseTest {
     protected KategorilerPage kategorilerPage;

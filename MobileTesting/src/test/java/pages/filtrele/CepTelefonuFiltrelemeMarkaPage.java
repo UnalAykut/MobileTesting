@@ -1,16 +1,12 @@
 package pages.filtrele;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
-import pages.BasePage;
 import pages.DisplayNameEnum;
 
-import java.util.List;
-
-public class CepTelefonuFiltrelemeMarka extends AbstractFiltrelemePage<CepTelefonuFiltrelemeMarka.FilterOption> {
+public class CepTelefonuFiltrelemeMarkaPage extends AbstractFiltrelemePage<CepTelefonuFiltrelemeMarkaPage.FilterOption> {
 
 
-    public CepTelefonuFiltrelemeMarka(AppiumDriver driver) {
+    public CepTelefonuFiltrelemeMarkaPage(AppiumDriver driver) {
         super( driver );
     }
     public enum FilterOption implements DisplayNameEnum {

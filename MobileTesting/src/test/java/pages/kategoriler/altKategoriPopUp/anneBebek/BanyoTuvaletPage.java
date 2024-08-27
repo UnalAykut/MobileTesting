@@ -5,9 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.AbstractCategoryPage;
 import pages.DisplayNameEnum;
-;
 
 import java.util.List;
+
+;
 
 public class BanyoTuvaletPage extends  AbstractCategoryPage<BanyoTuvaletPage.Kategori> {
     public BanyoTuvaletPage(AppiumDriver driver) {

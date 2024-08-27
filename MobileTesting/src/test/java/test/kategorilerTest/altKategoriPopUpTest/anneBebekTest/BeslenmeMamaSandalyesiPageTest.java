@@ -4,9 +4,7 @@ import org.testng.annotations.Test;
 import pages.kategoriler.AnneBebekKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.anneBebek.BanyoTuvaletPage;
-import pages.kategoriler.altKategoriPopUp.anneBebek.BeslenmeMamaSandalyesiPage;
 import test.baseTest.AbstractBaseCategoryTest;
-import test.baseTest.BaseTest;
 
 public class BeslenmeMamaSandalyesiPageTest extends AbstractBaseCategoryTest {
 

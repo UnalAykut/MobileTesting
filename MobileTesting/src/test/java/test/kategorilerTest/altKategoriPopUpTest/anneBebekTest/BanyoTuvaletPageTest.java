@@ -5,7 +5,6 @@ import pages.kategoriler.AnneBebekKategorilerPage;
 import pages.kategoriler.KategorilerPage;
 import pages.kategoriler.altKategoriPopUp.anneBebek.BanyoTuvaletPage;
 import test.baseTest.AbstractBaseCategoryTest;
-import test.baseTest.BaseTest;
 
 public class BanyoTuvaletPageTest extends AbstractBaseCategoryTest {
     @Test

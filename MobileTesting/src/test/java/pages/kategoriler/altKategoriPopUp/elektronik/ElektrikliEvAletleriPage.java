@@ -4,10 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.AbstractCategoryPage;
-import pages.BasePage;
 import pages.DisplayNameEnum;
-import pages.PageActions;
-import pages.kategoriler.altKategoriPopUp.anneBebek.BebekArabasiPage;
 
 import java.util.HashMap;
 import java.util.List;
